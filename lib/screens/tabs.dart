@@ -1,3 +1,5 @@
+import "package:firebase_auth/firebase_auth.dart";
+import "package:firebase_core/firebase_core.dart";
 import "package:flutter/material.dart";
 import "package:makerere_app/screens/home.dart";
 import "package:makerere_app/screens/orientation.dart";
@@ -53,6 +55,14 @@ class _TabsScreenState extends State<TabsScreen> {
       appBar: AppBar(
         title: activePageTitle,
         backgroundColor: Colors.black,
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.logout),
+            onPressed: () {
+              FirebaseAuth.instance.signOut();
+            },
+          ),
+        ],
       ),
       body: activePage,
       bottomNavigationBar: BottomNavigationBar(

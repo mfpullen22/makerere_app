@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "274141820242",
+    "project_id": "makerere-app",
+    "storage_bucket": "makerere-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:274141820242:android:98a43d538f155aff49768b",
+        "android_client_info": {
+          "package_name": "com.example.makerere_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBKAj9Li_j5g83YsQr8EoB9aRp9ftqho3g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
