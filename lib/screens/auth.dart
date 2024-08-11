@@ -16,21 +16,17 @@ class _AuthScreenState extends State<AuthScreen> {
   final _form = GlobalKey<FormState>();
   var _enteredEmail = "";
   var _enteredPassword = "";
+  var _idToken = "";
   var _isAuthenticating = false;
 
   void _submit() async {
     final isValid = _form.currentState!.validate();
 
     if (!isValid) {
-      print("Invalid form.");
-      print("Email: $_enteredEmail");
-      print("Password: $_enteredPassword");
       return;
     }
 
     _form.currentState!.save();
-    print("Email: $_enteredEmail");
-    print("Password: $_enteredPassword");
 
     try {
       setState(() {
@@ -41,7 +37,44 @@ class _AuthScreenState extends State<AuthScreen> {
         final userCredentials = await _firebase.signInWithEmailAndPassword(
             email: _enteredEmail, password: _enteredPassword);
       } else {
-        final userCredentials = await _firebase.createUserWithEmailAndPassword(
+        final querySnapshot = await FirebaseFirestore.instance
+            .collection("users")
+            .where("id_token", isEqualTo: _idToken)
+            .limit(1)
+            .get();
+
+        if (querySnapshot.docs.isNotEmpty) {
+          final userDoc = querySnapshot.docs.first;
+
+          final userCredentials =
+              await _firebase.createUserWithEmailAndPassword(
+            email: _enteredEmail,
+            password: _enteredPassword,
+          );
+
+          await userDoc.reference.update({
+            "email": _enteredEmail,
+            "id_token": FieldValue.delete(),
+          });
+        } else {
+          if (mounted) {
+            ScaffoldMessenger.of(context).clearSnackBars();
+            ScaffoldMessenger.of(context).showSnackBar(
+              const SnackBar(
+                content: Text("Invalid ID token."),
+              ),
+            );
+          }
+        }
+        if (mounted) {
+          setState(() {
+            _isAuthenticating = false;
+          });
+        }
+
+        return;
+
+/*         final userCredentials = await _firebase.createUserWithEmailAndPassword(
           email: _enteredEmail,
           password: _enteredPassword,
         );
@@ -53,7 +86,7 @@ class _AuthScreenState extends State<AuthScreen> {
           {
             "email": _enteredEmail,
           },
-        );
+        ); */
       }
     } on FirebaseAuthException catch (error) {
       if (mounted) {
@@ -132,6 +165,21 @@ class _AuthScreenState extends State<AuthScreen> {
                             },
                             onSaved: (value) => _enteredPassword = value!,
                           ),
+                          if (!_isLogin)
+                            TextFormField(
+                              decoration: const InputDecoration(
+                                labelText: "Unique Code",
+                              ),
+                              autocorrect: false,
+                              textCapitalization: TextCapitalization.none,
+                              validator: (value) {
+                                if (value == null || value.trim().isEmpty) {
+                                  return "Please enter your secure code.";
+                                }
+                                return null;
+                              },
+                              onSaved: (value) => _idToken = value!,
+                            ),
                           const SizedBox(height: 12),
                           if (_isAuthenticating)
                             const CircularProgressIndicator()

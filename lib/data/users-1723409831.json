@@ -1,0 +1,1021 @@
+{
+    "meta": {
+        "format": "JSON",
+        "version": "1.1.0",
+        "projectId": "makerere-app",
+        "resourcePath": [
+            "users"
+        ],
+        "recursive": false,
+        "creationTime": 1723409834,
+        "app": "firefoo"
+    },
+    "data": {
+        "0oPvBBTx4qUhzmKLr297": {
+            "class": "mmed1",
+            "email": "",
+            "firstname": "Rita Cynthia",
+            "lastname": "Nantongo",
+            "role": "student",
+            "id_token": "nantongo123",
+            "schedule": {
+                "rotation1": "Infectious Diseases",
+                "rotation2": "Infectious Diseases",
+                "rotation3": "Nephrology",
+                "rotation4": "Nephrology",
+                "rotation5": "Neurology",
+                "rotation6": "Neurology",
+                "rotation7": "Endocrinology",
+                "rotation8": "Endocrinology"
+            },
+            "__collections__": {}
+        },
+        "1Hf91ZXZhTBoOD5ce0Gc": {
+            "class": "mmed1",
+            "email": "",
+            "firstname": "Shafic",
+            "lastname": "Mutebi",
+            "role": "student",
+            "id_token": "mutebi123",
+            "schedule": {
+                "rotation1": "Nephrology",
+                "rotation2": "Nephrology",
+                "rotation3": "Gastroenterology",
+                "rotation4": "Gastroenterology",
+                "rotation5": "Neurology",
+                "rotation6": "Neurology",
+                "rotation7": "Ward 11",
+                "rotation8": "Ward 11"
+            },
+            "__collections__": {}
+        },
+        "2H4iReZ4tiYoDfWllACh": {
+            "class": "mmed1",
+            "email": "",
+            "firstname": "Margaret",
+            "lastname": "Nakiwala",
+            "role": "student",
+            "id_token": "nakiwala123",
+            "schedule": {
+                "rotation1": "Gastroenterology",
+                "rotation2": "Gastroenterology",
+                "rotation3": "Infectious Diseases",
+                "rotation4": "Infectious Diseases",
+                "rotation5": "Hematology",
+                "rotation6": "Hematology",
+                "rotation7": "Cardiology",
+                "rotation8": "Cardiology"
+            },
+            "__collections__": {}
+        },
+        "3Rw3CFqJbb1xmiho5hV9": {
+            "class": "mmed1",
+            "email": "",
+            "firstname": "Nelson Elieskia",
+            "lastname": "Mngulwi",
+            "role": "student",
+            "id_token": "mngulwi123",
+            "schedule": {
+                "rotation1": "Nephrology",
+                "rotation2": "Nephrology",
+                "rotation3": "Pulmonology",
+                "rotation4": "Pulmonology",
+                "rotation5": "Endocrinology",
+                "rotation6": "Endocrinology",
+                "rotation7": "Ward 11",
+                "rotation8": "Ward 11"
+            },
+            "__collections__": {}
+        },
+        "3XbAiSJPgSLhRrQzprBv": {
+            "class": "mmed1",
+            "email": "",
+            "firstname": "Pius",
+            "lastname": "Barungi",
+            "role": "student",
+            "id_token": "barungi123",
+            "schedule": {
+                "rotation1": "ICU/Palliative Care",
+                "rotation2": "ICU/Palliative Care",
+                "rotation3": "Ward 11",
+                "rotation4": "Ward 11",
+                "rotation5": "Gastroenterology",
+                "rotation6": "Gastroenterology",
+                "rotation7": "Hematology",
+                "rotation8": "Hematology"
+            },
+            "__collections__": {}
+        },
+        "4SxSqS1BjTOEdpTJ2XkT": {
+            "class": "mmed1",
+            "email": "example@example.com",
+            "firstname": "Hamid",
+            "lastname": "Safari",
+            "role": "student",
+            "schedule": {
+                "rotation1": "Endocrinology",
+                "rotation2": "Endocrinology",
+                "rotation3": "Infectious Diseases",
+                "rotation4": "Infectious Diseases",
+                "rotation5": "Gastroenterology",
+                "rotation6": "Gastroenterology",
+                "rotation7": "Hematology",
+                "rotation8": "Hematology"
+            },
+            "__collections__": {}
+        },
+        "77xOyWQNbtflpnAetQbI": {
+            "class": "mmed1",
+            "email": "",
+            "firstname": "Marcel",
+            "lastname": "Lameck",
+            "role": "student",
+            "id_token": "lameck123",
+            "schedule": {
+                "rotation1": "Ward 11",
+                "rotation2": "Ward 11",
+                "rotation3": "Neurology",
+                "rotation4": "Neurology",
+                "rotation5": "Cardiology",
+                "rotation6": "Cardiology",
+                "rotation7": "Gastroenterology",
+                "rotation8": "Gastroenterology"
+            },
+            "__collections__": {}
+        },
+        "7ZLWbhakxgQ9QPIB4PVc": {
+            "class": "mmed1",
+            "email": "",
+            "firstname": "Tonny",
+            "lastname": "Mukeeka",
+            "role": "student",
+            "id_token": "mukeeka123",
+            "schedule": {
+                "rotation1": "Cardiology",
+                "rotation2": "Cardiology",
+                "rotation3": "Gastroenterology",
+                "rotation4": "Gastroenterology",
+                "rotation5": "ICU/Palliative Care",
+                "rotation6": "ICU/Palliative Care",
+                "rotation7": "Pulmonology",
+                "rotation8": "Pulmonology"
+            },
+            "__collections__": {}
+        },
+        "9w5kabqrzlnH8pX605A7": {
+            "class": "mmed1",
+            "email": "",
+            "firstname": "Robinah Christine",
+            "lastname": "Nakintu",
+            "role": "student",
+            "id_token": "nakintu123",
+            "schedule": {
+                "rotation1": "ICU/Palliative Care",
+                "rotation2": "ICU/Palliative Care",
+                "rotation3": "Ward 11",
+                "rotation4": "Ward 11",
+                "rotation5": "Gastroenterology",
+                "rotation6": "Gastroenterology",
+                "rotation7": "Nephrology",
+                "rotation8": "Nephrology"
+            },
+            "__collections__": {}
+        },
+        "CZpsrH2zoEqB4wIGKsam": {
+            "class": "mmed1",
+            "email": "",
+            "firstname": "Joy Christine",
+            "lastname": "Namirembe",
+            "role": "student",
+            "id_token": "namirembe123",
+            "schedule": {
+                "rotation1": "Neurology",
+                "rotation2": "Neurology",
+                "rotation3": "Endocrinology",
+                "rotation4": "Endocrinology",
+                "rotation5": "Hematology",
+                "rotation6": "Hematology",
+                "rotation7": "ICU/Palliative Care",
+                "rotation8": "ICU/Palliative Care"
+            },
+            "__collections__": {}
+        },
+        "Cy0vHUDaHZXzryp11Q8V": {
+            "class": "mmed1",
+            "email": "",
+            "firstname": "Chisha",
+            "lastname": "Lusale",
+            "role": "student",
+            "id_token": "lusale123",
+            "schedule": {
+                "rotation1": "Infectious Diseases",
+                "rotation2": "Infectious Diseases",
+                "rotation3": "ICU/Palliative Care",
+                "rotation4": "ICU/Palliative Care",
+                "rotation5": "Nephrology",
+                "rotation6": "Nephrology",
+                "rotation7": "Gastroenterology",
+                "rotation8": "Gastroenterology"
+            },
+            "__collections__": {}
+        },
+        "D2J2Z9zs7nwM3qWFooUJ": {
+            "class": "mmed1",
+            "email": "",
+            "firstname": "Moses",
+            "lastname": "Jumba",
+            "role": "student",
+            "id_token": "jumba123",
+            "schedule": {
+                "rotation1": "Neurology",
+                "rotation2": "Neurology",
+                "rotation3": "Hematology",
+                "rotation4": "Hematology",
+                "rotation5": "Nephrology",
+                "rotation6": "Nephrology",
+                "rotation7": "Infecious Diseases",
+                "rotation8": "Infectious Diseases"
+            },
+            "__collections__": {}
+        },
+        "F2CbqWTX4DUf3Dla8rKS": {
+            "class": "mmed1",
+            "email": "",
+            "firstname": "Mubarak",
+            "lastname": "Kayiira",
+            "role": "student",
+            "id_token": "kayiira123",
+            "schedule": {
+                "rotation1": "Gastroenterology",
+                "rotation2": "Gastroenterology",
+                "rotation3": "Endocrinology",
+                "rotation4": "Endocrinology",
+                "rotation5": "Pulmonology",
+                "rotation6": "Pulmonology",
+                "rotation7": "ICU/Palliative Care",
+                "rotation8": "ICU/Palliative Care"
+            },
+            "__collections__": {}
+        },
+        "HDOgOZk7AUrR119tADs4": {
+            "class": "mmed1",
+            "email": "",
+            "firstname": "Enock",
+            "lastname": "Kagimu",
+            "role": "student",
+            "id_token": "kagimu123",
+            "schedule": {
+                "rotation1": "Pulmonology",
+                "rotation2": "Pulmonology",
+                "rotation3": "Hematology",
+                "rotation4": "Hematology",
+                "rotation5": "Ward 11",
+                "rotation6": "Ward 11",
+                "rotation7": "Neurology",
+                "rotation8": "Neurology"
+            },
+            "__collections__": {}
+        },
+        "HlZAQ4edpqEVqIJ7wrtG": {
+            "class": "mmed1",
+            "email": "",
+            "firstname": "Muhammed",
+            "lastname": "Abdulkahil Alu",
+            "role": "student",
+            "id_token": "abdul123",
+            "schedule": {
+                "rotation1": "Hematology",
+                "rotation2": "Hematology",
+                "rotation3": "Pulmonology",
+                "rotation4": "Pulmonology",
+                "rotation5": "Infectious Diseases",
+                "rotation6": "Infectious Diseases",
+                "rotation7": "Neurology",
+                "rotation8": "Neurology"
+            },
+            "__collections__": {}
+        },
+        "HliqGaqkHSZnWd9iZtSL": {
+            "class": "mmed1",
+            "email": "",
+            "firstname": "Daniel Reagan",
+            "lastname": "Emoru",
+            "role": "student",
+            "id_token": "emoru123",
+            "schedule": {
+                "rotation1": "Gastroenterology",
+                "rotation2": "Gastroenterology",
+                "rotation3": "Neurology",
+                "rotation4": "Neurology",
+                "rotation5": "Ward 11",
+                "rotation6": "Ward 11",
+                "rotation7": "Nephrology",
+                "rotation8": "Nephrology"
+            },
+            "__collections__": {}
+        },
+        "J5VcNcMuhQuUuv8BBbl3": {
+            "class": "mmed2",
+            "email": "",
+            "firstname": "Florence",
+            "lastname": "Adong",
+            "role": "student",
+            "id_token": "adong123",
+            "schedule": {
+                "rotation1": "UCI",
+                "rotation2": "TB",
+                "rotation3": "Emergency - Mulago",
+                "rotation4": "Radiology",
+                "rotation5": "MLI",
+                "rotation6": "IDI",
+                "rotation7": "UHI",
+                "rotation8": "Dermatology"
+            },
+            "__collections__": {}
+        },
+        "KmwvDS26Y4EgWCGuieB4": {
+            "class": "mmed2",
+            "email": "",
+            "firstname": "Innocent",
+            "lastname": "Luwagga",
+            "role": "student",
+            "id_token": "luwagga123",
+            "schedule": {
+                "rotation1": "Radiology",
+                "rotation2": "UHI",
+                "rotation3": "Dermatology",
+                "rotation4": "UCI",
+                "rotation5": "Emergency - Mulago",
+                "rotation6": "TB",
+                "rotation7": "MLI",
+                "rotation8": "IDI"
+            },
+            "__collections__": {}
+        },
+        "NQYUiCJRCv2ezJqtBQyv": {
+            "class": "mmed2",
+            "email": "",
+            "firstname": "Derrick",
+            "lastname": "Kasozi",
+            "role": "student",
+            "id_token": "kasozi123",
+            "schedule": {
+                "rotation1": "Emergency - Mulago",
+                "rotation2": "IDI",
+                "rotation3": "UCI",
+                "rotation4": "Radiology",
+                "rotation5": "TB",
+                "rotation6": "MLI",
+                "rotation7": "UHI",
+                "rotation8": "Dermatology"
+            },
+            "__collections__": {}
+        },
+        "PNanpmoQg7sUyBQKtgVZ": {
+            "class": "mmed2",
+            "email": "",
+            "firstname": "Ronald",
+            "lastname": "Kantu",
+            "role": "student",
+            "id_token": "kantu123",
+            "schedule": {
+                "rotation1": "IDI",
+                "rotation2": "MLI",
+                "rotation3": "UCI",
+                "rotation4": "Radiology",
+                "rotation5": "UHI",
+                "rotation6": "Dermatology",
+                "rotation7": "Emergency - Mulago",
+                "rotation8": "TB"
+            },
+            "__collections__": {}
+        },
+        "Q2CgppU6wDvAiipZpP1R": {
+            "class": "mmed2",
+            "email": "",
+            "firstname": "Kevina Etoru",
+            "lastname": "Anyumel",
+            "role": "student",
+            "id_token": "anyumel123",
+            "schedule": {
+                "rotation1": "MLI",
+                "rotation2": "TB",
+                "rotation3": "Radiology",
+                "rotation4": "UCI",
+                "rotation5": "IDI",
+                "rotation6": "UHI",
+                "rotation7": "Dermatology",
+                "rotation8": "Emergency - Mulago"
+            },
+            "__collections__": {}
+        },
+        "QAnw8HNj2mbnqd5WSrBF": {
+            "class": "mmed2",
+            "email": "",
+            "firstname": "Audrey Maria",
+            "lastname": "Kisaka",
+            "role": "student",
+            "id_token": "kisaka123",
+            "schedule": {
+                "rotation1": "Radiology",
+                "rotation2": "IDI",
+                "rotation3": "UHI",
+                "rotation4": "UCI",
+                "rotation5": "Dermatology",
+                "rotation6": "Emergency - Mulago",
+                "rotation7": "TB",
+                "rotation8": "MLI"
+            },
+            "__collections__": {}
+        },
+        "R0rG1AAQFqgyLDKQ9sT5": {
+            "class": "mmed2",
+            "email": "",
+            "firstname": "Isaac",
+            "lastname": "Kyazze",
+            "role": "student",
+            "id_token": "kyazze123",
+            "schedule": {
+                "rotation1": "Emergency - Mulago",
+                "rotation2": "UCI",
+                "rotation3": "Radiology",
+                "rotation4": "Dermatology",
+                "rotation5": "TB",
+                "rotation6": "MLI",
+                "rotation7": "IDI",
+                "rotation8": "UHI"
+            },
+            "__collections__": {}
+        },
+        "Slj7sTlCqBgNADZcCV8d": {
+            "class": "mmed2",
+            "email": "",
+            "firstname": "Leonard Lennox",
+            "lastname": "Marungu",
+            "role": "student",
+            "id_token": "marungu123",
+            "schedule": {
+                "rotation1": "UCI",
+                "rotation2": "Radiology",
+                "rotation3": "UHI",
+                "rotation4": "IDI",
+                "rotation5": "Dermatology",
+                "rotation6": "Emergency - Mulago",
+                "rotation7": "TB",
+                "rotation8": "MLI"
+            },
+            "__collections__": {}
+        },
+        "UjZU1m3awe3psigW14oQ": {
+            "class": "mmed2",
+            "email": "",
+            "firstname": "Gavin",
+            "lastname": "Mbabazi",
+            "role": "student",
+            "id_token": "mbabazi123",
+            "schedule": {
+                "rotation1": "MLI",
+                "rotation2": "UCI",
+                "rotation3": "IDI",
+                "rotation4": "Radiology",
+                "rotation5": "UHI",
+                "rotation6": "Dermatology",
+                "rotation7": "Emergency - Mulago",
+                "rotation8": "TB"
+            },
+            "__collections__": {}
+        },
+        "X4sH0w5kzI7H4xKonLW1": {
+            "class": "mmed2",
+            "email": "",
+            "firstname": "Galdys Marion",
+            "lastname": "Among",
+            "role": "student",
+            "id_token": "among123",
+            "schedule": {
+                "rotation1": "Radiology",
+                "rotation2": "MLI",
+                "rotation3": "UCI",
+                "rotation4": "TB",
+                "rotation5": "IDI",
+                "rotation6": "UHI",
+                "rotation7": "Dermatology",
+                "rotation8": "Emergency - Mulago"
+            },
+            "__collections__": {}
+        },
+        "a0zm0ZOj5ChQVPQKIGSH": {
+            "class": "mmed2",
+            "email": "",
+            "firstname": "Andrew Kaleebu",
+            "lastname": "Lule",
+            "role": "student",
+            "id_token": "lule123",
+            "schedule": {
+                "rotation1": "UHI",
+                "rotation2": "Radiology",
+                "rotation3": "Dermatology",
+                "rotation4": "UCI",
+                "rotation5": "Emergency - Mulago",
+                "rotation6": "TB",
+                "rotation7": "MLI",
+                "rotation8": "IDI"
+            },
+            "__collections__": {}
+        },
+        "a3RqomsxNX3M4FqLhuB0": {
+            "class": "mmed2",
+            "email": "",
+            "firstname": "Imacculate",
+            "lastname": "Akullo",
+            "role": "student",
+            "id_token": "akullo123",
+            "schedule": {
+                "rotation1": "Radiology",
+                "rotation2": "UCI",
+                "rotation3": "Emergency - Mulago",
+                "rotation4": "Dermatology",
+                "rotation5": "TB",
+                "rotation6": "MLI",
+                "rotation7": "IDI",
+                "rotation8": "UHI"
+            },
+            "__collections__": {}
+        },
+        "e2cUP4cEbpK9dfLPj0du": {
+            "class": "mmed2",
+            "email": "",
+            "firstname": "Fredrick",
+            "lastname": "Bakandonda",
+            "role": "student",
+            "id_token": "bakandonda123",
+            "schedule": {
+                "rotation1": "UCI",
+                "rotation2": "Radiology",
+                "rotation3": "IDI",
+                "rotation4": "UHI",
+                "rotation5": "Dermatology",
+                "rotation6": "Emergency - Mulago",
+                "rotation7": "TB",
+                "rotation8": "MLI"
+            },
+            "__collections__": {}
+        },
+        "gncRMMIjiGcBDhiNZ5xO": {
+            "class": "mmed2",
+            "email": "",
+            "firstname": "John Baptist",
+            "lastname": "Mpagi",
+            "role": "student",
+            "id_token": "mpagi123",
+            "schedule": {
+                "rotation1": "TB",
+                "rotation2": "Radiology",
+                "rotation3": "MLI",
+                "rotation4": "UCI",
+                "rotation5": "IDI",
+                "rotation6": "UHI",
+                "rotation7": "Dermatology",
+                "rotation8": "Emergency - Mulago"
+            },
+            "__collections__": {}
+        },
+        "z5WG7ZgE6TlVcy5LscMk": {
+            "class": "mmed2",
+            "email": "",
+            "firstname": "Marrion",
+            "lastname": "Kwaka",
+            "role": "student",
+            "id_token": "kwaka123",
+            "schedule": {
+                "rotation1": "Dermatology",
+                "rotation2": "UCI",
+                "rotation3": "Radiology",
+                "rotation4": "Emergency - Mulago",
+                "rotation5": "TB",
+                "rotation6": "MLI",
+                "rotation7": "IDI",
+                "rotation8": "UHI"
+            },
+            "__collections__": {}
+        },
+        "hmdrf3p9t4fl3z4N3z2u": {
+            "class": "mmed2",
+            "email": "",
+            "firstname": "Jakob",
+            "lastname": "Senkondo",
+            "role": "student",
+            "id_token": "senkondo123",
+            "schedule": {
+                "rotation1": "Radiology",
+                "rotation2": "Emergency - Mulago",
+                "rotation3": "TB",
+                "rotation4": "UCI",
+                "rotation5": "MLI",
+                "rotation6": "IDI",
+                "rotation7": "UHI",
+                "rotation8": "Dermatology"
+            },
+            "__collections__": {}
+        },
+        "hmifTVTkMRd3aZbkn0VB": {
+            "class": "mmed2",
+            "email": "",
+            "firstname": "Bernadette Akwii",
+            "lastname": "Atupu",
+            "role": "student",
+            "id_token": "atupu123",
+            "schedule": {
+                "rotation1": "UCI",
+                "rotation2": "Dermatology",
+                "rotation3": "Radiology",
+                "rotation4": "UHI",
+                "rotation5": "MLI",
+                "rotation6": "TB",
+                "rotation7": "Emergency - Mulago",
+                "rotation8": "IDI"
+            },
+            "__collections__": {}
+        },
+        "hwGdS059WeXFJgl3djLV": {
+            "class": "mmed2",
+            "email": "",
+            "firstname": "Dennis",
+            "lastname": "Mubiru",
+            "role": "student",
+            "id_token": "mubiru123",
+            "schedule": {
+                "rotation1": "UCI",
+                "rotation2": "Emergency - Mulago",
+                "rotation3": "TB",
+                "rotation4": "Radiology",
+                "rotation5": "MLI",
+                "rotation6": "IDI",
+                "rotation7": "UHI",
+                "rotation8": "Dermatology"
+            },
+            "__collections__": {}
+        },
+        "iKuhGYroVBuw7JhmVW56": {
+            "class": "mmed2",
+            "email": "",
+            "firstname": "Rogers",
+            "lastname": "Owori",
+            "role": "student",
+            "id_token": "owori123",
+            "schedule": {
+                "rotation1": "Dermatology",
+                "rotation2": "Radiology",
+                "rotation3": "UCI",
+                "rotation4": "Emergency - Mulago",
+                "rotation5": "UHI",
+                "rotation6": "TB",
+                "rotation7": "MLI",
+                "rotation8": "IDI"
+            },
+            "__collections__": {}
+        },
+        "iMIr76CRlwBb6z2TcOMU": {
+            "class": "mmed2",
+            "email": "",
+            "firstname": "Henry",
+            "lastname": "Sekyanzi",
+            "role": "student",
+            "id_token": "sekyanzi123",
+            "schedule": {
+                "rotation1": "IDI",
+                "rotation2": "UCI",
+                "rotation3": "Radiology",
+                "rotation4": "MLI",
+                "rotation5": "UHI",
+                "rotation6": "Dermatology",
+                "rotation7": "Emergency - Mulago",
+                "rotation8": "TB"
+            },
+            "__collections__": {}
+        },
+        "j7SxkGarnOeKC6UoTxgY": {
+            "class": "mmed3",
+            "email": "",
+            "firstname": "Abraha",
+            "lastname": "Mical",
+            "role": "student",
+            "id_token": "mical123",
+            "schedule": {
+                "rotation1": "Endocrinology",
+                "rotation2": "Endocrinology",
+                "rotation3": "Infectious Diseases",
+                "rotation4": "Infectious Diseases",
+                "rotation5": "Ward 11",
+                "rotation6": "Ward 11",
+                "rotation7": "Hematology",
+                "rotation8": "Hematology"
+            },
+            "__collections__": {}
+        },
+        "jNeqg8L6AN366Ib6Zkv3": {
+            "class": "mmed3",
+            "email": "",
+            "firstname": "Isaac",
+            "lastname": "Turyasingura",
+            "role": "student",
+            "id_token": "turya123",
+            "schedule": {
+                "rotation1": "Infectious Diseases",
+                "rotation2": "Infectious Diseases",
+                "rotation3": "Nephrology",
+                "rotation4": "Nephrology",
+                "rotation5": "Neurology",
+                "rotation6": "Neurology",
+                "rotation7": "Endocrinology",
+                "rotation8": "Endocrinology"
+            },
+            "__collections__": {}
+        },
+        "jmHraNu9WhuyDmKXBGZx": {
+            "class": "mmed3",
+            "email": "",
+            "firstname": "Proscilla Obore",
+            "lastname": "Apolot",
+            "role": "student",
+            "id_token": "apolot123",
+            "schedule": {
+                "rotation1": "Nephrology",
+                "rotation2": "Nephrology",
+                "rotation3": "Cardiology",
+                "rotation4": "Cardiology",
+                "rotation5": "Neurology",
+                "rotation6": "Neurology",
+                "rotation7": "Gastroenterology",
+                "rotation8": "Gastroenterology"
+            },
+            "__collections__": {}
+        },
+        "kJtvnc146LfdwtnPZMK9": {
+            "class": "mmed3",
+            "email": "",
+            "firstname": "Philip Dennis",
+            "lastname": "Akunguru",
+            "role": "student",
+            "id_token": "akunguru123",
+            "schedule": {
+                "rotation1": "Ward 11",
+                "rotation2": "Ward 11",
+                "rotation3": "Neurology",
+                "rotation4": "Neurology",
+                "rotation5": "Endocrinology",
+                "rotation6": "Endocrinology",
+                "rotation7": "Cardiology",
+                "rotation8": "Cardiology"
+            },
+            "__collections__": {}
+        },
+        "l7WKAxC6Aoujhu2rlman": {
+            "class": "mmed3",
+            "email": "",
+            "firstname": "Douglas",
+            "lastname": "Musimbaggo",
+            "role": "student",
+            "id_token": "musim123",
+            "schedule": {
+                "rotation1": "Nephrology",
+                "rotation2": "Nephrology",
+                "rotation3": "Pulmonology",
+                "rotation4": "Pulmonology",
+                "rotation5": "Endocrinology",
+                "rotation6": "Endocrinology",
+                "rotation7": "Ward 11",
+                "rotation8": "Ward 11"
+            },
+            "__collections__": {}
+        },
+        "oSULeNsRv9KP9oJlg6Iy": {
+            "class": "mmed3",
+            "email": "",
+            "firstname": "Solome",
+            "lastname": "Nakirunda",
+            "role": "student",
+            "id_token": "naki123",
+            "schedule": {
+                "rotation1": "Endocrinology",
+                "rotation2": "Endocrinology",
+                "rotation3": "Cardiology",
+                "rotation4": "Cardiology",
+                "rotation5": "Gastroenterology",
+                "rotation6": "Gastroenterology",
+                "rotation7": "Hematology",
+                "rotation8": "Hematology"
+            },
+            "__collections__": {}
+        },
+        "q0yxV9pzHSUgN34hxYz9": {
+            "class": "mmed3",
+            "email": "",
+            "firstname": "Ambros",
+            "lastname": "Ndegwe",
+            "role": "student",
+            "id_token": "ndegwe123",
+            "schedule": {
+                "rotation1": "Ward 11",
+                "rotation2": "Ward 11",
+                "rotation3": "Endocrinology",
+                "rotation4": "Endocrinology",
+                "rotation5": "Cardiology",
+                "rotation6": "Cardiology",
+                "rotation7": "Infecious Diseases",
+                "rotation8": "Infectious Diseases"
+            },
+            "__collections__": {}
+        },
+        "qKKeVDzDNaXSfYVAjODN": {
+            "class": "mmed3",
+            "email": "",
+            "firstname": "Simon Ayinza",
+            "lastname": "D'ujanga",
+            "role": "student",
+            "id_token": "dujanga123",
+            "schedule": {
+                "rotation1": "Cardiology",
+                "rotation2": "Cardiology",
+                "rotation3": "Gastroenterology",
+                "rotation4": "Gastroenterology",
+                "rotation5": "Endocrinology",
+                "rotation6": "Endocrinology",
+                "rotation7": "Pulmonology",
+                "rotation8": "Pulmonology"
+            },
+            "__collections__": {}
+        },
+        "qnhqb0seVr8ZhT0YgiK8": {
+            "class": "mmed3",
+            "email": "",
+            "firstname": "Andrew Peter",
+            "lastname": "Kyazze",
+            "role": "student",
+            "id_token": "kyazze123",
+            "schedule": {
+                "rotation1": "Cardiology",
+                "rotation2": "Cardiology",
+                "rotation3": "Ward 11",
+                "rotation4": "Ward 11",
+                "rotation5": "Hematology",
+                "rotation6": "Hematology",
+                "rotation7": "Nephrology",
+                "rotation8": "Nephrology"
+            },
+            "__collections__": {}
+        },
+        "rpVXFxeGHNIU5x6Ss6tF": {
+            "class": "mmed3",
+            "email": "",
+            "firstname": "Peter",
+            "lastname": "Kisembo",
+            "role": "student",
+            "id_token": "kisembo123",
+            "schedule": {
+                "rotation1": "Neurology",
+                "rotation2": "Neurology",
+                "rotation3": "Endocrinology",
+                "rotation4": "Endocrinology",
+                "rotation5": "Cardiology",
+                "rotation6": "Cardiology",
+                "rotation7": "Pulmonology",
+                "rotation8": "Pulmonology"
+            },
+            "__collections__": {}
+        },
+        "rzmN5S1LpBWLiuZkkWpf": {
+            "class": "mmed3",
+            "email": "",
+            "firstname": "Sheila",
+            "lastname": "Nassolo",
+            "role": "student",
+            "id_token": "nassolo123",
+            "schedule": {
+                "rotation1": "Endocrinology",
+                "rotation2": "Endocrinology",
+                "rotation3": "Neurology",
+                "rotation4": "Neurology",
+                "rotation5": "Nephrology",
+                "rotation6": "Nephrology",
+                "rotation7": "Cardiology",
+                "rotation8": "Cardiology"
+            },
+            "__collections__": {}
+        },
+        "soFrZp70bz4temEP4moX": {
+            "class": "mmed3",
+            "email": "",
+            "firstname": "Maria",
+            "lastname": "Nakiganda",
+            "role": "student",
+            "id_token": "naki123",
+            "schedule": {
+                "rotation1": "Neurology",
+                "rotation2": "Neurology",
+                "rotation3": "Hematology",
+                "rotation4": "Hematology",
+                "rotation5": "Nephrology",
+                "rotation6": "Nephrology",
+                "rotation7": "Pulmonology",
+                "rotation8": "Pulmonology"
+            },
+            "__collections__": {}
+        },
+        "stk4igdl7KzeFFSTOItt": {
+            "class": "mmed3",
+            "email": "",
+            "firstname": "Isaac Derrick",
+            "lastname": "Kimera",
+            "role": "student",
+            "id_token": "kimera123",
+            "schedule": {
+                "rotation1": "Gastroenterology",
+                "rotation2": "Gastroenterology",
+                "rotation3": "Nephrology",
+                "rotation4": "Nephrology",
+                "rotation5": "Pulmonology",
+                "rotation6": "Pulmonology",
+                "rotation7": "Cardiology",
+                "rotation8": "Cardiology"
+            },
+            "__collections__": {}
+        },
+        "tBU8fqzBXvoMMmSbhjvL": {
+            "class": "mmed3",
+            "email": "",
+            "firstname": "Roselyne",
+            "lastname": "Akuguzibwe",
+            "role": "student",
+            "id_token": "akuguz123",
+            "schedule": {
+                "rotation1": "Pulmonology",
+                "rotation2": "Pulmonology",
+                "rotation3": "Cardiology",
+                "rotation4": "Cardiology",
+                "rotation5": "Infectious Diseases",
+                "rotation6": "Infectious Diseases",
+                "rotation7": "Neurology",
+                "rotation8": "Neurology"
+            },
+            "__collections__": {}
+        },
+        "tC8sMG9zf4nCPxIEgYTH": {
+            "class": "mmed3",
+            "email": "",
+            "firstname": "Elijah",
+            "lastname": "Bainomujuni",
+            "role": "student",
+            "id_token": "baino123",
+            "schedule": {
+                "rotation1": "Hematology",
+                "rotation2": "Hematology",
+                "rotation3": "Pulmonology",
+                "rotation4": "Pulmonology",
+                "rotation5": "Cardiology",
+                "rotation6": "Cardiology",
+                "rotation7": "Neurology",
+                "rotation8": "Neurology"
+            },
+            "__collections__": {}
+        },
+        "v0mguMuyfU3JhO1dSEnt": {
+            "class": "mmed3",
+            "email": "",
+            "firstname": "Isa",
+            "lastname": "Semakula",
+            "role": "student",
+            "id_token": "sema123",
+            "schedule": {
+                "rotation1": "Cardiology",
+                "rotation2": "Cardiology",
+                "rotation3": "Neurology",
+                "rotation4": "Neurology",
+                "rotation5": "Pulmonology",
+                "rotation6": "Pulmonology",
+                "rotation7": "Endocrinology",
+                "rotation8": "Endocrinology"
+            },
+            "__collections__": {}
+        },
+        "xkGiEO895PhKa0oIUWfP": {
+            "class": "mmed3",
+            "email": "",
+            "firstname": "Eunice",
+            "lastname": "Auma",
+            "role": "student",
+            "id_token": "auma123",
+            "schedule": {
+                "rotation1": "Hematology",
+                "rotation2": "Hematology",
+                "rotation3": "Nephrology",
+                "rotation4": "Nephrology",
+                "rotation5": "Pulmonology",
+                "rotation6": "Pulmonology",
+                "rotation7": "Cardiology",
+                "rotation8": "Cardiology"
+            },
+            "__collections__": {}
+        }
+    }
+}
