@@ -8,7 +8,8 @@ import 'firebase_options.dart';
 
 final theme = ThemeData(
   useMaterial3: true,
-  scaffoldBackgroundColor: const Color.fromRGBO(255, 0, 0, 50),
+  //scaffoldBackgroundColor: const Color.fromRGBO(255, 0, 0, 50),
+  scaffoldBackgroundColor: Colors.white,
   colorScheme: ColorScheme.fromSeed(
     seedColor: const Color.fromRGBO(255, 0, 0, 100),
   ),

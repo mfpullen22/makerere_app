@@ -46,8 +46,7 @@ class _AuthScreenState extends State<AuthScreen> {
         if (querySnapshot.docs.isNotEmpty) {
           final userDoc = querySnapshot.docs.first;
 
-          final userCredentials =
-              await _firebase.createUserWithEmailAndPassword(
+          await _firebase.createUserWithEmailAndPassword(
             email: _enteredEmail,
             password: _enteredPassword,
           );
