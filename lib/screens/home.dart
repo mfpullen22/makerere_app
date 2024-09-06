@@ -29,6 +29,20 @@ class HomeScreen extends StatelessWidget {
               child: const Text("Semester Schedule"),
             ),
           ),
+          SizedBox(
+            width: 250,
+            child: ElevatedButton(
+              onPressed: () {},
+              child: const Text("View My Reviews"),
+            ),
+          ),
+          SizedBox(
+            width: 250,
+            child: ElevatedButton(
+              onPressed: () {},
+              child: const Text("Add Student Review"),
+            ),
+          ),
         ],
       ),
     );

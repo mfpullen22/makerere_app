@@ -1,3 +1,4 @@
+import "package:cloud_firestore/cloud_firestore.dart";
 import "package:firebase_auth/firebase_auth.dart";
 import "package:flutter/material.dart";
 import "package:makerere_app/screens/home.dart";
@@ -13,11 +14,43 @@ class TabsScreen extends StatefulWidget {
 
 class _TabsScreenState extends State<TabsScreen> {
   int _selectedPageIndex = 0;
+  String? _userRole;
+  bool _isLoading = true;
 
   void _selectPage(int index) {
     setState(() {
       _selectedPageIndex = index;
     });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _fetchUserRole();
+  }
+
+  Future<void> _fetchUserRole() async {
+    final user = FirebaseAuth.instance.currentUser;
+    if (user != null) {
+      final userDoc = await FirebaseFirestore.instance
+          .collection('users')
+          .doc(user.uid)
+          .get();
+
+      if (userDoc.exists) {
+        setState(() {
+          _userRole = userDoc['role'];
+          _isLoading = false;
+        });
+      } else {
+        setState(() {
+          _userRole = null;
+          _isLoading = false;
+        });
+        // Handle the case where the user document does not exist.
+        // For example, show an error message or navigate to an error page.
+      }
+    }
   }
 
   @override
@@ -30,7 +63,7 @@ class _TabsScreenState extends State<TabsScreen> {
           style: TextStyle(color: Colors.white),
         ),
         Text(
-          "School of Medicine",
+          "Department of Medicine",
           style: TextStyle(color: Colors.white),
         ),
       ],
