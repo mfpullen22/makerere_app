@@ -74,7 +74,6 @@ Widget getScheduleByStudent(lastName) {
         itemCount: rotationSchedule.length,
         itemBuilder: (context, index) {
           final rotation = rotationSchedule[index].data();
-          print(rotation["schedule"]["rotation1"]);
           if (rotation["class"] == "mmed2") {
             return Column(
               children: [
