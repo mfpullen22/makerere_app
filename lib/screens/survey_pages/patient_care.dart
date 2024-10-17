@@ -1,10 +1,13 @@
 import "package:flutter/material.dart";
+import "package:makerere_app/widgets/level_description.dart";
+import "package:makerere_app/widgets/score_interpretation.dart";
 
 class PatientCareReview extends StatefulWidget {
-  final Function onBack;
-  final Function onContinue;
   const PatientCareReview(
       {super.key, required this.onBack, required this.onContinue});
+
+  final Function onBack;
+  final Function onContinue;
 
   @override
   State<PatientCareReview> createState() => _PatientCareReviewState();
@@ -12,6 +15,8 @@ class PatientCareReview extends StatefulWidget {
 
 class _PatientCareReviewState extends State<PatientCareReview> {
   double sliderValue1 = 1;
+  TextEditingController patientCareComments1Controller =
+      TextEditingController();
   Widget scoreInterp = const Text("Select a score");
 
   Widget scoreInterpText(score) {
@@ -102,6 +107,8 @@ class _PatientCareReviewState extends State<PatientCareReview> {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const Center(
             child: Text(
@@ -113,8 +120,11 @@ class _PatientCareReviewState extends State<PatientCareReview> {
             ),
           ),
           const SizedBox(height: 10),
-          const Text(
-              "1. Gathers and synthesizes essential and accurate information to define each patient’s clinical problem(s)"),
+          const Align(
+            alignment: Alignment.centerLeft,
+            child: Text(
+                "1. Gathers and synthesizes essential and accurate information to define each patient’s clinical problem(s)"),
+          ),
           Slider(
             value: sliderValue1,
             min: 1,
@@ -127,7 +137,54 @@ class _PatientCareReviewState extends State<PatientCareReview> {
               });
             },
           ),
-          scoreInterpText(sliderValue1),
+          Center(
+            child: ScoreInterpretationText(score: sliderValue1),
+          ),
+          TextButton(
+            onPressed: () {
+              // Show a dialog with the level description
+              showDialog(
+                context: context,
+                builder: (BuildContext context) {
+                  return AlertDialog(
+                    title: const Center(
+                      child: Text(
+                        'Skill Levels',
+                        style: TextStyle(
+                          fontSize: 20,
+                          decoration: TextDecoration.underline,
+                        ),
+                      ),
+                    ),
+                    content: const LevelDescription(
+                        question:
+                            'pc1'), // Pass the appropriate question ID here
+                    actions: <Widget>[
+                      TextButton(
+                        onPressed: () {
+                          Navigator.of(context).pop(); // Close the dialog
+                        },
+                        child: const Text('Close'),
+                      ),
+                    ],
+                  );
+                },
+              );
+            },
+            child: const Text(
+              "Tap for description of skill levels",
+            ),
+          ),
+          const SizedBox(height: 20),
+          const Text("2. List things the SHO should do to improve:"),
+          TextField(
+            controller: patientCareComments1Controller, // Attach the controller
+            decoration: const InputDecoration(
+              border: OutlineInputBorder(),
+              hintText: "Enter your comments here",
+            ),
+            maxLines: 4, // Allow multiple lines of text
+          ),
           const SizedBox(height: 20),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
