@@ -122,51 +122,55 @@ class _AddSurveyScreenState extends State<AddSurveyScreen> {
             if (selectedStudent != null) ...[
               Form(
                 key: _formKey,
-                child: Column(
-                  children: [
-                    const SizedBox(height: 10),
-                    Center(
-                      child: Container(
-                        decoration: BoxDecoration(
-                          border: Border.all(color: Colors.black),
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        child: DropdownButton(
-                          hint: const Padding(
-                            padding: EdgeInsets.only(left: 10),
-                            child: Text("Select the rotation"),
+                child: Expanded(
+                  child: Column(
+                    children: [
+                      const SizedBox(height: 10),
+                      Center(
+                        child: Container(
+                          decoration: BoxDecoration(
+                            border: Border.all(color: Colors.black),
+                            borderRadius: BorderRadius.circular(10),
                           ),
-                          value: reviewDepartment,
-                          items: departments.map((department) {
-                            return DropdownMenuItem<String>(
-                              value: department,
-                              child: Padding(
-                                padding: const EdgeInsets.only(left: 10),
-                                child: Text(department),
-                              ),
-                            );
-                          }).toList(),
-                          onChanged: (department) {
-                            setState(() {
-                              reviewDepartment = department;
-                            });
-                          },
+                          child: DropdownButton(
+                            hint: const Padding(
+                              padding: EdgeInsets.only(left: 10),
+                              child: Text("Select the rotation"),
+                            ),
+                            value: reviewDepartment,
+                            items: departments.map((department) {
+                              return DropdownMenuItem<String>(
+                                value: department,
+                                child: Padding(
+                                  padding: const EdgeInsets.only(left: 10),
+                                  child: Text(department),
+                                ),
+                              );
+                            }).toList(),
+                            onChanged: (department) {
+                              setState(() {
+                                reviewDepartment = department;
+                              });
+                            },
+                          ),
                         ),
                       ),
-                    ),
-                    const SizedBox(height: 20),
-                    IndexedStack(
-                      index: currentPage,
-                      children: pages,
-                    ),
-/*           
-                    Text('Current value: $sliderValue'),
-                    const SizedBox(height: 20),
-                    ElevatedButton(
-                      onPressed: submitReview,
-                      child: const Text("Submit Review"),
-                    ), */
-                  ],
+                      const SizedBox(height: 20),
+                      Expanded(
+                        child: IndexedStack(
+                          index: currentPage,
+                          children: pages,
+                        ),
+                      ),
+                      /*           
+                      Text('Current value: $sliderValue'),
+                      const SizedBox(height: 20),
+                      ElevatedButton(
+                        onPressed: submitReview,
+                        child: const Text("Submit Review"),
+                      ), */
+                    ],
+                  ),
                 ),
               ),
             ],
