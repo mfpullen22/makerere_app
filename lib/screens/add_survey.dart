@@ -4,8 +4,10 @@ import "package:cloud_firestore/cloud_firestore.dart";
 import "package:firebase_auth/firebase_auth.dart";
 import 'package:intl/intl.dart';
 import "package:flutter/material.dart";
+import "package:makerere_app/screens/survey_pages/medical_knowledge.dart";
 import "package:makerere_app/screens/survey_pages/patient_care.dart";
 import "package:makerere_app/screens/survey_pages/review_instructions.dart";
+import "package:makerere_app/screens/survey_pages/systemsBasedPractice.dart";
 
 class AddSurveyScreen extends StatefulWidget {
   const AddSurveyScreen({super.key});
@@ -44,8 +46,9 @@ class _AddSurveyScreenState extends State<AddSurveyScreen> {
 
   // Form field controllers
   String? reviewDepartment;
-  double patientCareScore = 0;
-  String? patientCareComments;
+  Map patientCare = {};
+  Map medicalKnowledge = {};
+  Map systemsBasedPractice = {};
 
   @override
   void initState() {
@@ -59,17 +62,45 @@ class _AddSurveyScreenState extends State<AddSurveyScreen> {
             currentPage++;
           });
         }),
-        PatientCareReview(onBack: () {
+        PatientCareReview(onBack: (results) {
           setState(() {
+            patientCare = results;
             currentPage--;
+            print(patientCare);
           });
-        }, onContinue: (score, comments) {
+        }, onContinue: (results) {
           setState(() {
-            patientCareScore = score;
-            patientCareComments = comments;
+            patientCare = results;
             currentPage++;
+            print(patientCare);
           });
         }),
+        MedicalKnowledgeReview(onBack: (results) {
+          setState(() {
+            medicalKnowledge = results;
+            currentPage--;
+            print(medicalKnowledge);
+          });
+        }, onContinue: (results) {
+          setState(() {
+            medicalKnowledge = results;
+            currentPage++;
+            print(medicalKnowledge);
+          });
+        }),
+        SystemsBasedPractice(onBack: (results) {
+          setState(() {
+            systemsBasedPractice = results;
+            currentPage--;
+            print(systemsBasedPractice);
+          });
+        }, onContinue: (results) {
+          setState(() {
+            systemsBasedPractice = results;
+            currentPage++;
+            print(systemsBasedPractice);
+          });
+        })
       ],
     );
   }

@@ -2,34 +2,28 @@ import "package:flutter/material.dart";
 import "package:makerere_app/widgets/level_description.dart";
 import "package:makerere_app/widgets/score_interpretation.dart";
 
-class PatientCareReview extends StatefulWidget {
-  const PatientCareReview(
+class SystemsBasedPractice extends StatefulWidget {
+  const SystemsBasedPractice(
       {super.key, required this.onBack, required this.onContinue});
 
   final Function onBack;
   final Function onContinue;
 
   @override
-  State<PatientCareReview> createState() => _PatientCareReviewState();
+  State<SystemsBasedPractice> createState() => _SystemsBasedPracticeState();
 }
 
-class _PatientCareReviewState extends State<PatientCareReview> {
+class _SystemsBasedPracticeState extends State<SystemsBasedPractice> {
   double sliderValue1 = 1;
   double sliderValue2 = 1;
   double sliderValue3 = 1;
   double sliderValue4 = 1;
-  double sliderValue5 = 1;
-  double total = 0;
-  TextEditingController patientCareComments1Controller =
-      TextEditingController();
-  TextEditingController patientCareComments2Controller =
-      TextEditingController();
-  TextEditingController patientCareComments3Controller =
-      TextEditingController();
-  TextEditingController patientCareComments4Controller =
-      TextEditingController();
-  TextEditingController patientCareComments5Controller =
-      TextEditingController();
+
+  TextEditingController sbpComments1Controller = TextEditingController();
+  TextEditingController sbpComments2Controller = TextEditingController();
+  TextEditingController sbpComments3Controller = TextEditingController();
+  TextEditingController sbpComments4Controller = TextEditingController();
+
   Widget scoreInterp = const Text("Select a score");
 
   @override
@@ -45,7 +39,7 @@ class _PatientCareReviewState extends State<PatientCareReview> {
             children: [
               const Center(
                 child: Text(
-                  "Patient Care Skills",
+                  "Systems-Based Practice",
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 18,
@@ -56,7 +50,7 @@ class _PatientCareReviewState extends State<PatientCareReview> {
               const Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
-                  "1. Gathers and synthesizes essential and accurate information to define each patient’s clinical problem(s)",
+                  "1. Works effectively within an interprofessional team.",
                   style: TextStyle(fontWeight: FontWeight.bold),
                 ),
               ),
@@ -94,7 +88,7 @@ class _PatientCareReviewState extends State<PatientCareReview> {
                           ),
                           content: const LevelDescription(
                               question:
-                                  'pc1'), // Pass the appropriate question ID here
+                                  'sbp1'), // Pass the appropriate question ID here
                           actions: <Widget>[
                             TextButton(
                               onPressed: () {
@@ -115,8 +109,7 @@ class _PatientCareReviewState extends State<PatientCareReview> {
               const SizedBox(height: 10),
               const Text("List things the SHO should do to improve:"),
               TextField(
-                controller:
-                    patientCareComments1Controller, // Attach the controller
+                controller: sbpComments1Controller, // Attach the controller
                 decoration: const InputDecoration(
                   border: OutlineInputBorder(),
                   hintText: "Enter your comments here",
@@ -127,7 +120,7 @@ class _PatientCareReviewState extends State<PatientCareReview> {
               const Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
-                  "2. Develops and achieves a comprehensive management plans each patient.",
+                  "2. Recognized system error and advocates for system improvement.",
                   style: TextStyle(fontWeight: FontWeight.bold),
                 ),
               ),
@@ -165,7 +158,7 @@ class _PatientCareReviewState extends State<PatientCareReview> {
                           ),
                           content: const LevelDescription(
                               question:
-                                  'pc2'), // Pass the appropriate question ID here
+                                  'sbp2'), // Pass the appropriate question ID here
                           actions: <Widget>[
                             TextButton(
                               onPressed: () {
@@ -186,8 +179,7 @@ class _PatientCareReviewState extends State<PatientCareReview> {
               const SizedBox(height: 10),
               const Text("List things the SHO should do to improve:"),
               TextField(
-                controller:
-                    patientCareComments2Controller, // Attach the controller
+                controller: sbpComments2Controller, // Attach the controller
                 decoration: const InputDecoration(
                   border: OutlineInputBorder(),
                   hintText: "Enter your comments here",
@@ -198,7 +190,7 @@ class _PatientCareReviewState extends State<PatientCareReview> {
               const Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
-                  "3. Manages patients with progressive responsibility and independence.",
+                  "3. Identifies forces that impact the cost of health care, and advocates for, and practices cost-effective care.",
                   style: TextStyle(fontWeight: FontWeight.bold),
                 ),
               ),
@@ -236,7 +228,7 @@ class _PatientCareReviewState extends State<PatientCareReview> {
                           ),
                           content: const LevelDescription(
                               question:
-                                  'pc3'), // Pass the appropriate question ID here
+                                  'sbp3'), // Pass the appropriate question ID here
                           actions: <Widget>[
                             TextButton(
                               onPressed: () {
@@ -257,8 +249,7 @@ class _PatientCareReviewState extends State<PatientCareReview> {
               const SizedBox(height: 10),
               const Text("List things the SHO should do to improve:"),
               TextField(
-                controller:
-                    patientCareComments3Controller, // Attach the controller
+                controller: sbpComments3Controller, // Attach the controller
                 decoration: const InputDecoration(
                   border: OutlineInputBorder(),
                   hintText: "Enter your comments here",
@@ -269,7 +260,7 @@ class _PatientCareReviewState extends State<PatientCareReview> {
               const Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
-                  "4. Skill in performing procedures.",
+                  "4. Transitions patients effectively within and across health delivery systems.",
                   style: TextStyle(fontWeight: FontWeight.bold),
                 ),
               ),
@@ -307,7 +298,7 @@ class _PatientCareReviewState extends State<PatientCareReview> {
                           ),
                           content: const LevelDescription(
                               question:
-                                  'pc4'), // Pass the appropriate question ID here
+                                  'sbp4'), // Pass the appropriate question ID here
                           actions: <Widget>[
                             TextButton(
                               onPressed: () {
@@ -328,79 +319,7 @@ class _PatientCareReviewState extends State<PatientCareReview> {
               const SizedBox(height: 10),
               const Text("List things the SHO should do to improve:"),
               TextField(
-                controller:
-                    patientCareComments4Controller, // Attach the controller
-                decoration: const InputDecoration(
-                  border: OutlineInputBorder(),
-                  hintText: "Enter your comments here",
-                ),
-                maxLines: 4, // Allow multiple lines of text
-              ),
-              const SizedBox(height: 20),
-              const Align(
-                alignment: Alignment.centerLeft,
-                child: Text(
-                  "5. Requests and provides consultative care.",
-                  style: TextStyle(fontWeight: FontWeight.bold),
-                ),
-              ),
-              Slider(
-                value: sliderValue5,
-                min: 1,
-                max: 9,
-                divisions: 8,
-                label: sliderValue5.toString(),
-                onChanged: (value) {
-                  setState(() {
-                    sliderValue5 = value;
-                  });
-                },
-              ),
-              Center(
-                child: ScoreInterpretationText(score: sliderValue5),
-              ),
-              Center(
-                child: TextButton(
-                  onPressed: () {
-                    // Show a dialog with the level description
-                    showDialog(
-                      context: context,
-                      builder: (BuildContext context) {
-                        return AlertDialog(
-                          title: const Center(
-                            child: Text(
-                              'Skill Levels',
-                              style: TextStyle(
-                                fontSize: 20,
-                                decoration: TextDecoration.underline,
-                              ),
-                            ),
-                          ),
-                          content: const LevelDescription(
-                              question:
-                                  'pc5'), // Pass the appropriate question ID here
-                          actions: <Widget>[
-                            TextButton(
-                              onPressed: () {
-                                Navigator.of(context).pop(); // Close the dialog
-                              },
-                              child: const Text('Close'),
-                            ),
-                          ],
-                        );
-                      },
-                    );
-                  },
-                  child: const Text(
-                    "Tap for description of skill levels for this question.",
-                  ),
-                ),
-              ),
-              const SizedBox(height: 10),
-              const Text("List things the SHO should do to improve:"),
-              TextField(
-                controller:
-                    patientCareComments5Controller, // Attach the controller
+                controller: sbpComments4Controller, // Attach the controller
                 decoration: const InputDecoration(
                   border: OutlineInputBorder(),
                   hintText: "Enter your comments here",
@@ -421,16 +340,14 @@ class _PatientCareReviewState extends State<PatientCareReview> {
                       child: TextButton(
                         onPressed: () {
                           widget.onBack({
-                            "pc1": sliderValue1,
-                            "pc2": sliderValue2,
-                            "pc3": sliderValue3,
-                            "pc4": sliderValue4,
-                            "pc5": sliderValue5,
-                            "pc1Comments": patientCareComments1Controller.text,
-                            "pc2Comments": patientCareComments2Controller.text,
-                            "pc3Comments": patientCareComments3Controller.text,
-                            "pc4Comments": patientCareComments4Controller.text,
-                            "pc5Comments": patientCareComments5Controller.text,
+                            "sbp1": sliderValue1,
+                            "sbp2": sliderValue2,
+                            "sbp3": sliderValue3,
+                            "sbp4": sliderValue4,
+                            "sbp1Comments": sbpComments1Controller.text,
+                            "sbp2Comments": sbpComments2Controller.text,
+                            "sbp3Comments": sbpComments3Controller.text,
+                            "sbp4Comments": sbpComments4Controller.text,
                           });
                         },
                         child: const Row(
@@ -456,16 +373,14 @@ class _PatientCareReviewState extends State<PatientCareReview> {
                       child: TextButton(
                         onPressed: () {
                           widget.onContinue({
-                            "pc1": sliderValue1,
-                            "pc2": sliderValue2,
-                            "pc3": sliderValue3,
-                            "pc4": sliderValue4,
-                            "pc5": sliderValue5,
-                            "pc1Comments": patientCareComments1Controller.text,
-                            "pc2Comments": patientCareComments2Controller.text,
-                            "pc3Comments": patientCareComments3Controller.text,
-                            "pc4Comments": patientCareComments4Controller.text,
-                            "pc5Comments": patientCareComments5Controller.text,
+                            "sbp1": sliderValue1,
+                            "sbp2": sliderValue2,
+                            "sbp3": sliderValue3,
+                            "sbp4": sliderValue4,
+                            "sbp1Comments": sbpComments1Controller.text,
+                            "sbp2Comments": sbpComments2Controller.text,
+                            "sbp3Comments": sbpComments3Controller.text,
+                            "sbp4Comments": sbpComments4Controller.text,
                           });
                         },
                         child: const Row(
