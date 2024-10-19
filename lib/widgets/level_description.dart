@@ -1,6 +1,3 @@
-import "dart:ffi";
-import "dart:io";
-
 import "package:flutter/material.dart";
 
 class LevelDescription extends StatelessWidget {
@@ -712,7 +709,7 @@ class LevelDescription extends StatelessWidget {
           ],
         ),
       );
-    } else if (question == "pbli1") {
+    } else if (question == "pbl1") {
       return const SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
@@ -723,25 +720,52 @@ class LevelDescription extends StatelessWidget {
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
             ),
             Text(
+                "Unwilling to self-reflect upon one’s practice or performance"),
+            SizedBox(height: 5),
+            Text(
+                "Not concerned with opportunities for learning and self-improvement"),
+            SizedBox(height: 10),
+            Text(
               "Early Learner",
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
             ),
+            Text("Unable to self-reflect upon one’s practice or performance"),
+            SizedBox(height: 5),
+            Text("Misses opportunities for learning and self-improvement"),
+            SizedBox(height: 10),
             Text(
               "Advanced Learner",
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
             ),
             Text(
+                "Inconsistently self-reflects upon one’s practice or performance and inconsistently acts upon those reflections"),
+            SizedBox(height: 5),
+            Text(
+                "Inconsistently acts upon opportunities for learning and self-improvement"),
+            SizedBox(height: 10),
+            Text(
               "Ready for Unsupervised Practice",
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
             ),
             Text(
+                "Regularly self-reflects upon one’s practice or performance and consistently acts upon those reflections to improve practice"),
+            SizedBox(height: 5),
+            Text(
+                "Recognizes sub-optimal practice or performance as an opportunity for learning and self-improvement"),
+            SizedBox(height: 10),
+            Text(
               "Aspirational",
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
             ),
+            Text(
+                "Regularly self-reflects and seeks external validation regarding this reflection to maximize practice improvement"),
+            SizedBox(height: 5),
+            Text(
+                "Actively engages in self-improvement efforts and reflects upon the experience"),
           ],
         ),
       );
-    } else if (question == "pbli2") {
+    } else if (question == "pbl2") {
       return const SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
@@ -751,26 +775,62 @@ class LevelDescription extends StatelessWidget {
               "Critical Deficiencies",
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
             ),
+            Text("Disregards own clinical performance data"),
+            SizedBox(height: 5),
+            Text(
+                "Demonstrates no inclination to participate in or even consider the results of quality improvement efforts"),
+            SizedBox(height: 10),
             Text(
               "Early Learner",
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
             ),
             Text(
+                "Limited awareness of or desire to analyze own clinical performance data"),
+            SizedBox(height: 5),
+            Text("Nominally participates in a quality improvement projects"),
+            SizedBox(height: 5),
+            Text(
+                "Not familiar with the principles, techniques or importance of quality improvement"),
+            SizedBox(height: 10),
+            Text(
               "Advanced Learner",
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
             ),
+            Text(
+                "Analyzes own clinical performance data and identifies opportunities for improvement"),
+            SizedBox(height: 5),
+            Text("Effectively participates in a quality improvement project"),
+            SizedBox(height: 5),
+            Text(
+                "Understands common principles and techniques of quality improvement and appreciates the responsibility to assess and improve care for a panel of patients"),
+            SizedBox(height: 10),
             Text(
               "Ready for Unsupervised Practice",
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
             ),
             Text(
+                "Analyzes own clinical performance data and actively works to improve performance"),
+            SizedBox(height: 5),
+            Text("Actively engages in quality improvement initiatives"),
+            SizedBox(height: 5),
+            Text(
+                "Demonstrates the ability to apply common principles and techniques of quality improvement to improve care for a panel of patients"),
+            SizedBox(height: 10),
+            Text(
               "Aspirational",
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
             ),
+            Text(
+                "Actively monitors clinical performance through various data sources"),
+            SizedBox(height: 5),
+            Text("Is able to lead a quality improvement project"),
+            SizedBox(height: 5),
+            Text(
+                "Utilizes common principles and techniques of quality improvement to continuously improve care for a panel of patients"),
           ],
         ),
       );
-    } else if (question == "pbli3") {
+    } else if (question == "pbl3") {
       return const SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
@@ -780,26 +840,54 @@ class LevelDescription extends StatelessWidget {
               "Critical Deficiencies",
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
             ),
+            Text("Never solicits feedback"),
+            SizedBox(height: 5),
+            Text("Actively resists feedback from others"),
+            SizedBox(height: 10),
             Text(
               "Early Learner",
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
             ),
+            Text("Rarely seeks feedback"),
+            SizedBox(height: 5),
+            Text("Responds to unsolicited feedback in a defensive fashion"),
+            SizedBox(height: 5),
+            Text(
+                "Temporarily or superficially adjusts performance based on feedback"),
+            SizedBox(height: 10),
             Text(
               "Advanced Learner",
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
             ),
+            Text("Solicits feedback only from supervisors"),
+            SizedBox(height: 5),
+            Text("Is open to unsolicited feedback"),
+            SizedBox(height: 5),
+            Text("Inconsistently incorporates feedback"),
+            SizedBox(height: 10),
             Text(
               "Ready for Unsupervised Practice",
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
             ),
             Text(
+                "Solicits feedback from all members of the interprofessional team and patients"),
+            SizedBox(height: 5),
+            Text("Welcomes unsolicited feedback"),
+            SizedBox(height: 5),
+            Text("Consistently incorporates feedback"),
+            SizedBox(height: 10),
+            Text(
               "Aspirational",
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
             ),
+            Text(
+                "Performance continuously reflects incorporation of solicited and unsolicited feedback"),
+            SizedBox(height: 5),
+            Text("Able to reconcile disparate or conflicting feedback"),
           ],
         ),
       );
-    } else if (question == "pbli4") {
+    } else if (question == "pbl4") {
       return const SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
@@ -810,21 +898,72 @@ class LevelDescription extends StatelessWidget {
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
             ),
             Text(
+                "Fails to acknowledge uncertainty and reverts to a reflexive patterned response even when inaccurate"),
+            SizedBox(height: 5),
+            Text("Fails to seek or apply evidence when necessary"),
+            SizedBox(height: 10),
+            Text(
               "Early Learner",
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
             ),
+            Text(
+                "Rarely “slows down” to reconsider an approach to a problem, ask for help, or seek new information"),
+            SizedBox(height: 5),
+            Text(
+                "Can translate medical information needs into well-formed clinical questions with assistance"),
+            SizedBox(height: 5),
+            Text(
+                "Unfamiliar with strengths and weaknesses of the medical literature"),
+            SizedBox(height: 5),
+            Text(
+                "Has limited awareness of or ability to use information technology"),
+            SizedBox(height: 5),
+            Text(
+                "Accepts the findings of clinical research studies without critical appraisal"),
+            SizedBox(height: 10),
             Text(
               "Advanced Learner",
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
             ),
             Text(
+                "Inconsistently “slows down” to reconsider an approach to a problem, ask for help, or seek new information"),
+            SizedBox(height: 5),
+            Text(
+                "Can translate medical information needs into well-formed clinical questions independently"),
+            SizedBox(height: 5),
+            Text(
+                "Aware of the strengths and weaknesses of medical information resources but utilizes information technology without sophistication"),
+            SizedBox(height: 5),
+            Text(
+                "With assistance, appraises clinical research reports, based on accepted criteria"),
+            SizedBox(height: 10),
+            Text(
               "Ready for Unsupervised Practice",
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
             ),
             Text(
+                "Routinely “slows down” to reconsider an approach to a problem, ask for help, or seek new information"),
+            SizedBox(height: 5),
+            Text(
+                "Routinely translates new medical information needs into well-formed clinical questions"),
+            SizedBox(height: 5),
+            Text("Utilizes information technology with sophistication"),
+            SizedBox(height: 5),
+            Text(
+                "Independently appraises clinical research reports based on accepted criteria"),
+            SizedBox(height: 10),
+            Text(
               "Aspirational",
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
             ),
+            Text(
+                "Searches medical information resources efficiently, guided by the characteristics of clinical questions"),
+            SizedBox(height: 5),
+            Text(
+                "Role models how to appraise clinical research reports based on accepted criteria"),
+            SizedBox(height: 5),
+            Text(
+                "Has a systematic approach to track and pursue emerging clinical questions"),
           ],
         ),
       );
@@ -838,22 +977,71 @@ class LevelDescription extends StatelessWidget {
               "Critical Deficiencies",
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
             ),
+            Text("Lacks empathy and compassion for patients and caregivers"),
+            SizedBox(height: 5),
+            Text(
+                "Disrespectful in interactions with patients, caregivers and members of the interprofessional team"),
+            SizedBox(height: 5),
+            Text("Sacrifices patient needs in favor of own self-interest"),
+            SizedBox(height: 5),
+            Text(
+                "Blatantly disregards respect for patient privacy and autonomy"),
+            SizedBox(height: 10),
             Text(
               "Early Learner",
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
             ),
             Text(
+                "Inconsistently demonstrates empathy, compassion and respect for patients and caregivers"),
+            SizedBox(height: 5),
+            Text(
+                "Inconsistently demonstrates responsiveness to patients’ and caregivers’ needs in an appropriate fashion"),
+            SizedBox(height: 5),
+            Text("Inconsistently considers patient privacy and autonomy"),
+            SizedBox(height: 10),
+            Text(
               "Advanced Learner",
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
             ),
+            Text(
+                "Consistently respectful in interactions with patients, caregivers and members of the interprofessional team, even in challenging situations"),
+            SizedBox(height: 5),
+            Text(
+                "Is available and responsive to needs and concerns of patients, caregivers and members of the interprofessional team to ensure safe and effective care"),
+            SizedBox(height: 5),
+            Text("Emphasizes patient privacy and autonomy in all interactions"),
+            SizedBox(height: 10),
             Text(
               "Ready for Unsupervised Practice",
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
             ),
             Text(
+                "Demonstrates empathy, compassion and respect to patients and caregivers in all situations"),
+            SizedBox(height: 5),
+            Text(
+                "Anticipates, advocates for, and proactively works to meet the needs of patients and caregivers"),
+            SizedBox(height: 5),
+            Text(
+                "Demonstrates a responsiveness to patient needs that supersedes self-interest"),
+            SizedBox(height: 5),
+            Text(
+                "Positively acknowledges input of members of the interprofessional team and incorporates that input into plan of care as appropriate"),
+            SizedBox(height: 10),
+            Text(
               "Aspirational",
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
             ),
+            Text(
+                "Role models compassion, empathy and respect for patients and caregivers"),
+            SizedBox(height: 5),
+            Text(
+                "Role models appropriate anticipation and advocacy for patient and caregiver needs"),
+            SizedBox(height: 5),
+            Text(
+                "Fosters collegiality that promotes a high-functioning interprofessional team"),
+            SizedBox(height: 5),
+            Text(
+                "Teaches others regarding maintaining patient privacy and respecting patient autonomy"),
           ],
         ),
       );
@@ -868,21 +1056,49 @@ class LevelDescription extends StatelessWidget {
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
             ),
             Text(
+                "Is consistently unreliable in completing patient care responsibilities or assigned administrative tasks"),
+            SizedBox(height: 5),
+            Text("Shuns responsibilities expected of a physician professional"),
+            SizedBox(height: 10),
+            Text(
               "Early Learner",
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
             ),
+            Text(
+                "Completes most assigned tasks in a timely manner but may need multiple reminders or other support"),
+            SizedBox(height: 5),
+            Text(
+                "Accepts professional responsibility only when assigned or mandatory"),
+            SizedBox(height: 10),
             Text(
               "Advanced Learner",
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
             ),
             Text(
+                "Completes administrative and patient care tasks in a timely manner in accordance with local practice and/or policy"),
+            SizedBox(height: 5),
+            Text(
+                "Completes assigned professional responsibilities without questioning or the need for reminders"),
+            SizedBox(height: 10),
+            Text(
               "Ready for Unsupervised Practice",
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
             ),
             Text(
+                "Prioritizes multiple competing demands in order to complete tasks and responsibilities in a timely and effective manner"),
+            SizedBox(height: 5),
+            Text(
+                "Willingness to assume professional responsibility regardless of the situation"),
+            SizedBox(height: 10),
+            Text(
               "Aspirational",
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
             ),
+            Text(
+                "Role models prioritizing multiple competing demands in order to complete tasks and responsibilities in a timely and effective manner"),
+            SizedBox(height: 5),
+            Text(
+                "Assists others to improve their ability to prioritize multiple, competing tasks"),
           ],
         ),
       );
@@ -897,21 +1113,50 @@ class LevelDescription extends StatelessWidget {
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
             ),
             Text(
+                "Is insensitive to differences related to culture, ethnicity, gender, race, age, and religion in the patient/caregiver encounter"),
+            SizedBox(height: 5),
+            Text(
+                "Is unwilling to modify care plan to account for a patient’s unique characteristics and needs"),
+            SizedBox(height: 10),
+            Text(
               "Early Learner",
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
             ),
+            Text(
+                "Is sensitive to and has basic awareness of differences related to culture, ethnicity, gender, race, age and religion in the patient/caregiver encounter"),
+            SizedBox(height: 5),
+            Text(
+                "Requires assistance to modify care plan to account for a patient’s unique characteristics and needs"),
+            SizedBox(height: 10),
             Text(
               "Advanced Learner",
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
             ),
             Text(
+                "Seeks to fully understand each patient’s unique characteristics and needs based upon culture, ethnicity, gender, religion, and personal preference"),
+            SizedBox(height: 5),
+            Text(
+                "Modifies care plan to account for a patient’s unique characteristics and needs with partial success"),
+            SizedBox(height: 10),
+            Text(
               "Ready for Unsupervised Practice",
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
             ),
             Text(
+                "Recognizes and accounts for the unique characteristics and needs of the patient/caregiver"),
+            SizedBox(height: 5),
+            Text(
+                "Appropriately modifies care plan to account for a patient’s unique characteristics and needs"),
+            SizedBox(height: 10),
+            Text(
               "Aspirational",
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
             ),
+            Text(
+                "Role models professional interactions to negotiate differences related to a patient’s unique characteristics or needs"),
+            SizedBox(height: 5),
+            Text(
+                "Role models consistent respect for patient’s unique characteristics and needs"),
           ],
         ),
       );
@@ -926,21 +1171,68 @@ class LevelDescription extends StatelessWidget {
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
             ),
             Text(
+                "Dishonest in clinical interactions, documentation, research, or scholarly activity"),
+            SizedBox(height: 5),
+            Text("Refuses to be accountable for personal actions"),
+            SizedBox(height: 5),
+            Text("Does not adhere to basic ethical principles"),
+            SizedBox(height: 5),
+            Text("Blatantly disregards formal policies or procedures"),
+            SizedBox(height: 10),
+            Text(
               "Early Learner",
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
             ),
+            Text(
+                "Honest in clinical interactions, documentation, research, and scholarly activity. Requires oversight for professional actions"),
+            SizedBox(height: 5),
+            Text(
+                "Has a basic understanding of ethical principles, formal policies and procedures, and does not intentionally disregard them"),
+            SizedBox(height: 10),
             Text(
               "Advanced Learner",
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
             ),
             Text(
+                "Honest and forthright in clinical interactions, documentation, research, and scholarly activity"),
+            SizedBox(height: 5),
+            Text("Demonstrates accountability for the care of patients"),
+            SizedBox(height: 5),
+            Text(
+                "Adheres to ethical principles for documentation, follows formal policies and procedures, acknowledges and limits conflict of interest, and upholds ethical expectations of research and scholarly activity"),
+            SizedBox(height: 10),
+            Text(
               "Ready for Unsupervised Practice",
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
             ),
             Text(
+                "Honest and forthright in clinical interactions, documentation, research, and scholarly activity"),
+            SizedBox(height: 5),
+            Text("Demonstrates accountability for the care of patients"),
+            SizedBox(height: 5),
+            Text(
+                "Adheres to ethical principles for documentation, follows formal policies and procedures, acknowledges and limits conflict of interest, and upholds ethical expectations of research and scholarly activity"),
+            SizedBox(height: 5),
+            Text(
+                "Demonstrates integrity, honesty, and accountability to patients, society and the profession"),
+            SizedBox(height: 5),
+            Text(
+                "Actively manages challenging ethical dilemmas and conflicts of interest"),
+            SizedBox(height: 5),
+            Text(
+                "Identifies and responds appropriately to lapses of professional conduct among peer group"),
+            SizedBox(height: 10),
+            Text(
               "Aspirational",
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
             ),
+            Text(
+                "Assists others in adhering to ethical principles and behaviors including integrity, honesty, and professional responsibility"),
+            SizedBox(height: 5),
+            Text(
+                "Role models integrity, honesty, accountability and professional conduct in all aspects of professional life"),
+            SizedBox(height: 5),
+            Text("Regularly reflects on personal professional conduct"),
           ],
         ),
       );
@@ -954,22 +1246,60 @@ class LevelDescription extends StatelessWidget {
               "Critical Deficiencies",
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
             ),
+            Text("Ignores patient preferences for plan of care"),
+            SizedBox(height: 5),
+            Text(
+                "Makes no attempt to engage patient in shared decision-making"),
+            SizedBox(height: 5),
+            Text(
+                "Routinely engages in antagonistic or counter-therapeutic relationships with patients and caregivers"),
+            SizedBox(height: 10),
             Text(
               "Early Learner",
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
             ),
             Text(
+                "Engages patients in discussions of care plans and respects patient preferences when offered by the patient, but does not actively solicit preferences"),
+            SizedBox(height: 5),
+            Text(
+                "Attempts to develop therapeutic relationships with patients and caregivers but is often unsuccessful"),
+            SizedBox(height: 5),
+            Text("Defers difficult or ambiguous conversations to others"),
+            SizedBox(height: 10),
+            Text(
               "Advanced Learner",
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
             ),
+            Text(
+                "Engages patients in shared decision making in uncomplicated conversations"),
+            SizedBox(height: 5),
+            Text(
+                "Requires assistance facilitating discussions in difficult or ambiguous conversations"),
+            SizedBox(height: 5),
+            Text(
+                "Requires guidance or assistance to engage in communication with persons of different socioeconomic and cultural backgrounds"),
+            SizedBox(height: 10),
             Text(
               "Ready for Unsupervised Practice",
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
             ),
             Text(
+                "Identifies and incorporates patient preference in shared decision making across a wide variety of patient care conversations"),
+            SizedBox(height: 5),
+            Text(
+                "Quickly establishes a therapeutic relationship with patients and caregivers, including persons of different socioeconomic and cultural backgrounds"),
+            SizedBox(height: 5),
+            Text("Incorporates patient-specific preferences into plan of care"),
+            SizedBox(height: 10),
+            Text(
               "Aspirational",
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
             ),
+            Text(
+                "Role models effective communication and development of therapeutic relationships in both routine and challenging situations"),
+            SizedBox(height: 5),
+            Text(
+                "Models cross-cultural communication and establishes therapeutic relationships with persons of diverse socioeconomic backgrounds"),
           ],
         ),
       );
@@ -984,21 +1314,46 @@ class LevelDescription extends StatelessWidget {
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
             ),
             Text(
+                "Utilizes communication strategies that hamper collaboration and teamwork"),
+            SizedBox(height: 5),
+            Text(
+                "Verbal and/or non-verbal behaviors disrupt effective collaboration with team members"),
+            SizedBox(height: 10),
+            Text(
               "Early Learner",
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
             ),
+            Text(
+                "Uses unidirectional communication that fails to utilize the wisdom of the team"),
+            SizedBox(height: 5),
+            Text("Resists offers of collaborative input"),
+            SizedBox(height: 10),
             Text(
               "Advanced Learner",
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
             ),
             Text(
+                "Inconsistently engages in collaborative communication with appropriate members of the team"),
+            SizedBox(height: 5),
+            Text(
+                "Inconsistently employs verbal, non-verbal, and written communication strategies that facilitate collaborative care"),
+            SizedBox(height: 10),
+            Text(
               "Ready for Unsupervised Practice",
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
             ),
             Text(
+                "Consistently and actively engages in collaborative communication with all members of the team"),
+            SizedBox(height: 5),
+            Text(
+                "Verbal, non-verbal and written communication consistently acts to facilitate collaboration with the team to enhance patient care"),
+            SizedBox(height: 10),
+            Text(
               "Aspirational",
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
             ),
+            Text(
+                "Role models and teaches collaborative communication with the team to enhance patient care, even in challenging settings and with conflicting team member opinions"),
           ],
         ),
       );
@@ -1013,21 +1368,36 @@ class LevelDescription extends StatelessWidget {
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
             ),
             Text(
+                "Health records are absent or missing significant portions of important clinical data"),
+            SizedBox(height: 10),
+            Text(
               "Early Learner",
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
             ),
+            Text("Health records are disorganized and inaccurate"),
+            SizedBox(height: 10),
             Text(
               "Advanced Learner",
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
             ),
             Text(
+                "Health records are organized and accurate but are superficial and miss key data or fail to communicate clinical reasoning"),
+            SizedBox(height: 10),
+            Text(
               "Ready for Unsupervised Practice",
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
             ),
             Text(
+                "Health records are organized, accurate, comprehensive, and effectively communicate clinical reasoning"),
+            SizedBox(height: 5),
+            Text("Health records are succinct, relevant, and patient specific"),
+            SizedBox(height: 10),
+            Text(
               "Aspirational",
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
             ),
+            Text(
+                "Role models and teaches importance of organized, accurate and comprehensive health records that are succinct and patient specific"),
           ],
         ),
       );

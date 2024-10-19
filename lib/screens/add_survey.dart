@@ -4,10 +4,14 @@ import "package:cloud_firestore/cloud_firestore.dart";
 import "package:firebase_auth/firebase_auth.dart";
 import 'package:intl/intl.dart';
 import "package:flutter/material.dart";
+import "package:makerere_app/screens/survey_pages/interpersonal_skills.dart";
 import "package:makerere_app/screens/survey_pages/medical_knowledge.dart";
 import "package:makerere_app/screens/survey_pages/patient_care.dart";
+import "package:makerere_app/screens/survey_pages/practice_based_learning.dart";
+import "package:makerere_app/screens/survey_pages/professionalism.dart";
 import "package:makerere_app/screens/survey_pages/review_instructions.dart";
-import "package:makerere_app/screens/survey_pages/systemsBasedPractice.dart";
+import "package:makerere_app/screens/survey_pages/score_summary.dart";
+import "package:makerere_app/screens/survey_pages/systems_based_practice.dart";
 
 class AddSurveyScreen extends StatefulWidget {
   const AddSurveyScreen({super.key});
@@ -49,6 +53,9 @@ class _AddSurveyScreenState extends State<AddSurveyScreen> {
   Map patientCare = {};
   Map medicalKnowledge = {};
   Map systemsBasedPractice = {};
+  Map practiceBasedLearning = {};
+  Map professionalism = {};
+  Map interpersonal = {};
 
   @override
   void initState() {
@@ -66,39 +73,66 @@ class _AddSurveyScreenState extends State<AddSurveyScreen> {
           setState(() {
             patientCare = results;
             currentPage--;
-            print(patientCare);
           });
         }, onContinue: (results) {
           setState(() {
             patientCare = results;
             currentPage++;
-            print(patientCare);
           });
         }),
         MedicalKnowledgeReview(onBack: (results) {
           setState(() {
             medicalKnowledge = results;
             currentPage--;
-            print(medicalKnowledge);
           });
         }, onContinue: (results) {
           setState(() {
             medicalKnowledge = results;
             currentPage++;
-            print(medicalKnowledge);
           });
         }),
         SystemsBasedPractice(onBack: (results) {
           setState(() {
             systemsBasedPractice = results;
             currentPage--;
-            print(systemsBasedPractice);
           });
         }, onContinue: (results) {
           setState(() {
             systemsBasedPractice = results;
             currentPage++;
-            print(systemsBasedPractice);
+          });
+        }),
+        PracticeBasedLearning(onBack: (results) {
+          setState(() {
+            practiceBasedLearning = results;
+            currentPage--;
+          });
+        }, onContinue: (results) {
+          setState(() {
+            practiceBasedLearning = results;
+            currentPage++;
+          });
+        }),
+        Professionalism(onBack: (results) {
+          setState(() {
+            professionalism = results;
+            currentPage--;
+          });
+        }, onContinue: (results) {
+          setState(() {
+            professionalism = results;
+            currentPage++;
+          });
+        }),
+        InterpersonalCommunicationSkills(onBack: (results) {
+          setState(() {
+            interpersonal = results;
+            currentPage--;
+          });
+        }, onContinue: (results) {
+          setState(() {
+            interpersonal = results;
+            currentPage++;
           });
         })
       ],
@@ -188,10 +222,19 @@ class _AddSurveyScreenState extends State<AddSurveyScreen> {
                       ),
                       const SizedBox(height: 20),
                       Expanded(
-                        child: IndexedStack(
-                          index: currentPage,
-                          children: pages,
-                        ),
+                        child: IndexedStack(index: currentPage, children: [
+                          ...pages,
+                          ScoreSummary(
+                            results: {
+                              "patientCare": patientCare,
+                              "medicalKnowledge": medicalKnowledge,
+                              "systemsBasedPractice": systemsBasedPractice,
+                              "practiceBasedLearning": practiceBasedLearning,
+                              "professionalism": professionalism,
+                              "interpersonal": interpersonal,
+                            },
+                          ),
+                        ]),
                       ),
                       /*           
                       Text('Current value: $sliderValue'),
