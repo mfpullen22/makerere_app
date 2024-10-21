@@ -50,12 +50,62 @@ class _AddSurveyScreenState extends State<AddSurveyScreen> {
 
   // Form field controllers
   String? reviewDepartment;
-  Map patientCare = {};
-  Map medicalKnowledge = {};
-  Map systemsBasedPractice = {};
-  Map practiceBasedLearning = {};
-  Map professionalism = {};
-  Map interpersonal = {};
+  Map patientCare = {
+    "pc1": 1,
+    "pc1Comments": "",
+    "pc2": 1,
+    "pc2Comments": "",
+    "pc3": 1,
+    "pc3Comments": "",
+    "pc4": 1,
+    "pc4Comments": "",
+    "pc5": 1,
+    "pc5Comments": ""
+  };
+  Map medicalKnowledge = {
+    "mk1": 1,
+    "mk1Comments": "",
+    "mk2": 1,
+    "mk2Comments": ""
+  };
+  Map systemsBasedPractice = {
+    "sbp1": 1,
+    "sbp1Comments": "",
+    "sbp2": 1,
+    "sbp2Comments": "",
+    "sbp3": 1,
+    "sbp3Comments": "",
+    "sbp4": 1,
+    "sbp4Comments": ""
+  };
+  Map practiceBasedLearning = {
+    "pbl1": 1,
+    "pbl1Comments": "",
+    "pbl2": 1,
+    "pbl2Comments": "",
+    "pbl3": 1,
+    "pbl3Comments": "",
+    "pbl4": 1,
+    "pbl4Comments": ""
+  };
+  Map professionalism = {
+    "prof1": 1,
+    "prof1Comments": "",
+    "prof2": 1,
+    "prof2Comments": "",
+    "prof3": 1,
+    "prof3Comments": "",
+    "prof4": 1,
+    "prof4Comments": ""
+  };
+  Map interpersonal = {
+    "ics1": 1,
+    "ics1Comments": "",
+    "ics2": 1,
+    "ics2Comments": "",
+    "ics3": 1,
+    "ics3Comments": ""
+  };
 
   @override
   void initState() {
