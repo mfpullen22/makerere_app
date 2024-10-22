@@ -90,6 +90,7 @@ class _TabsScreenState extends State<TabsScreen> {
         actions: [
           IconButton(
             icon: const Icon(Icons.logout),
+            color: Colors.white,
             onPressed: () {
               FirebaseAuth.instance.signOut();
             },

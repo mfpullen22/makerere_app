@@ -193,6 +193,9 @@ class _AddSurveyScreenState extends State<AddSurveyScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        iconTheme: const IconThemeData(
+          color: Colors.white, // White back button
+        ),
         backgroundColor: Colors.black,
         title:
             const Text('Submit Review', style: TextStyle(color: Colors.white)),
