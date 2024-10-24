@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:makerere_app/screens/view_surveys.dart';
 
 class ListSurveysScreen extends StatefulWidget {
   const ListSurveysScreen({super.key});
@@ -172,6 +173,15 @@ class _ListSurveysScreenState extends State<ListSurveysScreen> {
                       borderRadius: BorderRadius.circular(10),
                     ),
                     trailing: const Icon(Icons.arrow_forward),
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => ViewSurveysScreen(
+                              results: review, role: userRole!),
+                        ),
+                      );
+                    },
                   ),
                 );
               },
