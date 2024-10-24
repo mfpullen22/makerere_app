@@ -1,4 +1,4 @@
-import "package:flutter/material.dart";
+import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:makerere_app/models/lectures.dart';
 import 'package:makerere_app/screens/pdf.dart';
@@ -19,21 +19,52 @@ class OrientationScreen extends StatelessWidget {
     ];
 
     Future<void> openPDF(BuildContext context, String fileName) async {
-      String path = (await getApplicationDocumentsDirectory()).path;
-      String assetPath = 'assets/pdfs/$fileName';
-      String filePath = '$path/$fileName';
+      try {
+        print("Attempting to load PDF: $fileName from assets...");
 
-      if (!File(filePath).existsSync()) {
-        ByteData data = await rootBundle.load(assetPath);
-        List<int> bytes =
-            data.buffer.asUint8List(data.offsetInBytes, data.lengthInBytes);
-        await File(filePath).writeAsBytes(bytes);
-      }
-      if (!context.mounted) {
-        return;
-      } else {
-        Navigator.push(context,
-            MaterialPageRoute(builder: (context) => PDFScreen(path: filePath)));
+        // Get the app's documents directory
+        String path = (await getApplicationDocumentsDirectory()).path;
+        String assetPath = 'assets/pdfs/$fileName';
+        String filePath = '$path/$fileName';
+
+        print("Asset path: $assetPath");
+        print("File path in app directory: $filePath");
+
+        // Check if the file already exists in the local directory
+        if (!File(filePath).existsSync()) {
+          print("File does not exist. Loading PDF from assets...");
+          // Load PDF from assets
+          ByteData data = await rootBundle.load(assetPath);
+          print("Loaded PDF from assets: $fileName");
+
+          // Convert ByteData to list of bytes
+          List<int> bytes =
+              data.buffer.asUint8List(data.offsetInBytes, data.lengthInBytes);
+
+          // Write the PDF to the app's document directory
+          print("Writing PDF to app's document directory...");
+          await File(filePath).writeAsBytes(bytes);
+          print("PDF written to $filePath");
+        } else {
+          print("File already exists in app's document directory.");
+        }
+
+        // Ensure the context is still mounted before navigation
+        if (!context.mounted) return;
+
+        // Navigate to PDF viewer screen
+        print("Navigating to PDF viewer...");
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => PDFScreen(path: filePath)),
+        );
+      } catch (e) {
+        print("Error opening PDF: $e");
+
+        // Show an error message in case of failure
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('Failed to open PDF: $e')),
+        );
       }
     }
 
@@ -85,14 +116,3 @@ class OrientationScreen extends StatelessWidget {
     );
   }
 }
-
-
-/* [
-          const Text("Orientation Screen"),
-          ElevatedButton(
-            onPressed: () {
-              openPDF(context, "bioterror.pdf");
-            },
-            child: const Text("Bioterror Lecture"),
-          ),
-        ], */
