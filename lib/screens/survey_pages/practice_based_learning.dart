@@ -37,6 +37,31 @@ class _PracticeBasedLearningState extends State<PracticeBasedLearning> {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisSize: MainAxisSize.min,
             children: [
+              TextButton(
+                onPressed: () {
+                  setState(() {
+                    sliderValue1 = 1;
+                    sliderValue2 = 2;
+                    sliderValue3 = 3;
+                    sliderValue4 = 4;
+                  });
+                  widget.onContinue({
+                    "pbl1": sliderValue1,
+                    "pbl2": sliderValue2,
+                    "pbl3": sliderValue3,
+                    "pbl4": sliderValue4,
+                    "pblTotal": sliderValue1 +
+                        sliderValue2 +
+                        sliderValue3 +
+                        sliderValue4,
+                    "pbl1Comments": "PBLTest1",
+                    "pbl2Comments": "PBLTest2",
+                    "pbl3Comments": "PBLTest3",
+                    "pbl4Comments": "PBLTest4",
+                  });
+                },
+                child: const Text("TEST"),
+              ),
               const Center(
                 child: Text(
                   "Practice-Based Learning and Improvement",
@@ -344,6 +369,10 @@ class _PracticeBasedLearningState extends State<PracticeBasedLearning> {
                             "pbl2": sliderValue2,
                             "pbl3": sliderValue3,
                             "pbl4": sliderValue4,
+                            "pblTotal": sliderValue1 +
+                                sliderValue2 +
+                                sliderValue3 +
+                                sliderValue4,
                             "pbl1Comments": pblComments1Controller.text,
                             "pbl2Comments": pblComments2Controller.text,
                             "pbl3Comments": pblComments3Controller.text,
@@ -377,6 +406,10 @@ class _PracticeBasedLearningState extends State<PracticeBasedLearning> {
                             "pbl2": sliderValue2,
                             "pbl3": sliderValue3,
                             "pbl4": sliderValue4,
+                            "pblTotal": sliderValue1 +
+                                sliderValue2 +
+                                sliderValue3 +
+                                sliderValue4,
                             "pbl1Comments": pblComments1Controller.text,
                             "pbl2Comments": pblComments2Controller.text,
                             "pbl3Comments": pblComments3Controller.text,

@@ -24,7 +24,6 @@ class _AddSurveyScreenState extends State<AddSurveyScreen> {
   int currentPage = 0;
   List<DocumentSnapshot> students = [];
   DocumentSnapshot? selectedStudent;
-  final _formKey = GlobalKey<FormState>();
   String? reviewer;
   List<String> departments = [
     "Cardiology",
@@ -51,6 +50,7 @@ class _AddSurveyScreenState extends State<AddSurveyScreen> {
   // Form field controllers
   String? reviewDepartment;
   Map patientCare = {
+    "pcTotal": 0,
     "pc1": 1,
     "pc1Comments": "",
     "pc2": 1,
@@ -60,15 +60,17 @@ class _AddSurveyScreenState extends State<AddSurveyScreen> {
     "pc4": 1,
     "pc4Comments": "",
     "pc5": 1,
-    "pc5Comments": ""
+    "pc5Comments": "",
   };
   Map medicalKnowledge = {
+    "mkTotal": 0,
     "mk1": 1,
     "mk1Comments": "",
     "mk2": 1,
     "mk2Comments": ""
   };
   Map systemsBasedPractice = {
+    "sbpTotal": 0,
     "sbp1": 1,
     "sbp1Comments": "",
     "sbp2": 1,
@@ -79,6 +81,7 @@ class _AddSurveyScreenState extends State<AddSurveyScreen> {
     "sbp4Comments": ""
   };
   Map practiceBasedLearning = {
+    "pblTotal": 0,
     "pbl1": 1,
     "pbl1Comments": "",
     "pbl2": 1,
@@ -89,6 +92,7 @@ class _AddSurveyScreenState extends State<AddSurveyScreen> {
     "pbl4Comments": ""
   };
   Map professionalism = {
+    "profTotal": 0,
     "prof1": 1,
     "prof1Comments": "",
     "prof2": 1,
@@ -99,6 +103,7 @@ class _AddSurveyScreenState extends State<AddSurveyScreen> {
     "prof4Comments": ""
   };
   Map interpersonal = {
+    "icsTotal": 0,
     "ics1": 1,
     "ics1Comments": "",
     "ics2": 1,
@@ -106,6 +111,7 @@ class _AddSurveyScreenState extends State<AddSurveyScreen> {
     "ics3": 1,
     "ics3Comments": ""
   };
+//54
 
   @override
   void initState() {
@@ -238,46 +244,44 @@ class _AddSurveyScreenState extends State<AddSurveyScreen> {
 
             // Show form when a student is selected
             if (selectedStudent != null) ...[
-              Form(
-                key: _formKey,
-                child: Expanded(
-                  child: Column(
-                    children: [
-                      const SizedBox(height: 10),
-                      Center(
-                        child: Container(
-                          decoration: BoxDecoration(
-                            border: Border.all(color: Colors.black),
-                            borderRadius: BorderRadius.circular(10),
+              Expanded(
+                child: Column(
+                  children: [
+                    const SizedBox(height: 10),
+                    Center(
+                      child: Container(
+                        decoration: BoxDecoration(
+                          border: Border.all(color: Colors.black),
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        child: DropdownButton(
+                          hint: const Padding(
+                            padding: EdgeInsets.only(left: 10),
+                            child: Text("Select the rotation"),
                           ),
-                          child: DropdownButton(
-                            hint: const Padding(
-                              padding: EdgeInsets.only(left: 10),
-                              child: Text("Select the rotation"),
-                            ),
-                            value: reviewDepartment,
-                            items: departments.map((department) {
-                              return DropdownMenuItem<String>(
-                                value: department,
-                                child: Padding(
-                                  padding: const EdgeInsets.only(left: 10),
-                                  child: Text(department),
-                                ),
-                              );
-                            }).toList(),
-                            onChanged: (department) {
-                              setState(() {
-                                reviewDepartment = department;
-                              });
-                            },
-                          ),
+                          value: reviewDepartment,
+                          items: departments.map((department) {
+                            return DropdownMenuItem<String>(
+                              value: department,
+                              child: Padding(
+                                padding: const EdgeInsets.only(left: 10),
+                                child: Text(department),
+                              ),
+                            );
+                          }).toList(),
+                          onChanged: (department) {
+                            setState(() {
+                              reviewDepartment = department;
+                            });
+                          },
                         ),
                       ),
-                      const SizedBox(height: 20),
-                      Expanded(
-                        child: IndexedStack(index: currentPage, children: [
-                          ...pages,
-                          ScoreSummary(
+                    ),
+                    const SizedBox(height: 20),
+                    Expanded(
+                      child: IndexedStack(index: currentPage, children: [
+                        ...pages,
+                        ScoreSummary(
                             results: {
                               "patientCare": patientCare,
                               "medicalKnowledge": medicalKnowledge,
@@ -286,18 +290,28 @@ class _AddSurveyScreenState extends State<AddSurveyScreen> {
                               "professionalism": professionalism,
                               "interpersonal": interpersonal,
                             },
-                          ),
-                        ]),
-                      ),
-                      /*           
+                            selectedStudent: selectedStudent,
+                            reviewDepartment:
+                                reviewDepartment, // Pass the reviewDepartment
+                            reviewer: reviewer!,
+                            onSuccess: () {
+                              setState(() {
+                                selectedStudent = null;
+                                reviewDepartment = null;
+                                Navigator.popUntil(
+                                    context, (route) => route.isFirst);
+                              });
+                            }),
+                      ]),
+                    ),
+                    /*           
                       Text('Current value: $sliderValue'),
                       const SizedBox(height: 20),
                       ElevatedButton(
                         onPressed: submitReview,
                         child: const Text("Submit Review"),
                       ), */
-                    ],
-                  ),
+                  ],
                 ),
               ),
             ],
@@ -334,8 +348,10 @@ class _AddSurveyScreenState extends State<AddSurveyScreen> {
 
   // Fetch students from Firestore and sort them alphabetically
   Future<void> fetchStudents() async {
-    QuerySnapshot snapshot =
-        await FirebaseFirestore.instance.collection('users').get();
+    QuerySnapshot snapshot = await FirebaseFirestore.instance
+        .collection('users')
+        .where("role", isEqualTo: "student")
+        .get();
     setState(() {
       students = snapshot.docs;
       students.sort((a, b) => "${a['lastname']}, ${a['firstname']}"
@@ -343,7 +359,7 @@ class _AddSurveyScreenState extends State<AddSurveyScreen> {
     });
   }
 
-  // Function to submit the review
+/*   // Function to submit the review
   void submitReview() async {
     if (selectedStudent == null || reviewDepartment == null) {
       // Show a snackbar if any required field is not filled out
@@ -390,5 +406,5 @@ class _AddSurveyScreenState extends State<AddSurveyScreen> {
         print('Error submitting review: $e');
       }
     }
-  }
+  } */
 }

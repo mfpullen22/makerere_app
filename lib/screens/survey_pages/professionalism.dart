@@ -37,6 +37,31 @@ class _ProfessionalismState extends State<Professionalism> {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisSize: MainAxisSize.min,
             children: [
+              TextButton(
+                onPressed: () {
+                  setState(() {
+                    sliderValue1 = 1;
+                    sliderValue2 = 2;
+                    sliderValue3 = 3;
+                    sliderValue4 = 4;
+                  });
+                  widget.onContinue({
+                    "prof1": sliderValue1,
+                    "prof2": sliderValue2,
+                    "prof3": sliderValue3,
+                    "prof4": sliderValue4,
+                    "profTotal": sliderValue1 +
+                        sliderValue2 +
+                        sliderValue3 +
+                        sliderValue4,
+                    "prof1Comments": "ProfTest1",
+                    "prof2Comments": "ProfTest2",
+                    "prof3Comments": "ProfTest3",
+                    "prof4Comments": "ProfTest4",
+                  });
+                },
+                child: const Text("TEST"),
+              ),
               const Center(
                 child: Text(
                   "Professionalism",
@@ -344,6 +369,10 @@ class _ProfessionalismState extends State<Professionalism> {
                             "prof2": sliderValue2,
                             "prof3": sliderValue3,
                             "prof4": sliderValue4,
+                            "profTotal": sliderValue1 +
+                                sliderValue2 +
+                                sliderValue3 +
+                                sliderValue4,
                             "prof1Comments": profComments1Controller.text,
                             "prof2Comments": profComments2Controller.text,
                             "prof3Comments": profComments3Controller.text,
@@ -377,6 +406,10 @@ class _ProfessionalismState extends State<Professionalism> {
                             "prof2": sliderValue2,
                             "prof3": sliderValue3,
                             "prof4": sliderValue4,
+                            "profTotal": sliderValue1 +
+                                sliderValue2 +
+                                sliderValue3 +
+                                sliderValue4,
                             "prof1Comments": profComments1Controller.text,
                             "prof2Comments": profComments2Controller.text,
                             "prof3Comments": profComments3Controller.text,

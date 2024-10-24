@@ -43,6 +43,35 @@ class _PatientCareReviewState extends State<PatientCareReview> {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisSize: MainAxisSize.min,
             children: [
+              TextButton(
+                onPressed: () {
+                  setState(() {
+                    sliderValue1 = 1;
+                    sliderValue2 = 2;
+                    sliderValue3 = 3;
+                    sliderValue4 = 4;
+                    sliderValue5 = 5;
+                  });
+                  widget.onContinue({
+                    "pc1": sliderValue1,
+                    "pc2": sliderValue2,
+                    "pc3": sliderValue3,
+                    "pc4": sliderValue4,
+                    "pc5": sliderValue5,
+                    "pcTotal": sliderValue1 +
+                        sliderValue2 +
+                        sliderValue3 +
+                        sliderValue4 +
+                        sliderValue5,
+                    "pc1Comments": "PCTest1",
+                    "pc2Comments": "PCTest2",
+                    "pc3Comments": "PCTest3",
+                    "pc4Comments": "PCTest4",
+                    "pc5Comments": "PCTest5",
+                  });
+                },
+                child: const Text("TEST"),
+              ),
               const Center(
                 child: Text(
                   "Patient Care Skills",
@@ -426,6 +455,11 @@ class _PatientCareReviewState extends State<PatientCareReview> {
                             "pc3": sliderValue3,
                             "pc4": sliderValue4,
                             "pc5": sliderValue5,
+                            "pcTotal": sliderValue1 +
+                                sliderValue2 +
+                                sliderValue3 +
+                                sliderValue4 +
+                                sliderValue5,
                             "pc1Comments": patientCareComments1Controller.text,
                             "pc2Comments": patientCareComments2Controller.text,
                             "pc3Comments": patientCareComments3Controller.text,
@@ -461,6 +495,11 @@ class _PatientCareReviewState extends State<PatientCareReview> {
                             "pc3": sliderValue3,
                             "pc4": sliderValue4,
                             "pc5": sliderValue5,
+                            "pcTotal": sliderValue1 +
+                                sliderValue2 +
+                                sliderValue3 +
+                                sliderValue4 +
+                                sliderValue5,
                             "pc1Comments": patientCareComments1Controller.text,
                             "pc2Comments": patientCareComments2Controller.text,
                             "pc3Comments": patientCareComments3Controller.text,

@@ -37,6 +37,25 @@ class _InterpersonalCommunicationSkillsState
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisSize: MainAxisSize.min,
             children: [
+              TextButton(
+                onPressed: () {
+                  setState(() {
+                    sliderValue1 = 1;
+                    sliderValue2 = 2;
+                    sliderValue3 = 3;
+                  });
+                  widget.onContinue({
+                    "ics1": sliderValue1,
+                    "ics2": sliderValue2,
+                    "ics3": sliderValue3,
+                    "icsTotal": sliderValue1 + sliderValue2 + sliderValue3,
+                    "ics1Comments": "ICSTest1",
+                    "ics2Comments": "ICSTest2",
+                    "ics3Comments": "ICSTest3",
+                  });
+                },
+                child: const Text("TEST"),
+              ),
               const Center(
                 child: Text(
                   "Interpersonal and Communication Skills",
@@ -273,6 +292,8 @@ class _InterpersonalCommunicationSkillsState
                             "ics1": sliderValue1,
                             "ics2": sliderValue2,
                             "ics3": sliderValue3,
+                            "icsTotal":
+                                sliderValue1 + sliderValue2 + sliderValue3,
                             "ics1Comments": icsComments1Controller.text,
                             "ics2Comments": icsComments2Controller.text,
                             "ics3Comments": icsComments3Controller.text,
@@ -304,6 +325,8 @@ class _InterpersonalCommunicationSkillsState
                             "ics1": sliderValue1,
                             "ics2": sliderValue2,
                             "ics3": sliderValue3,
+                            "icsTotal":
+                                sliderValue1 + sliderValue2 + sliderValue3,
                             "ics1Comments": icsComments1Controller.text,
                             "ics2Comments": icsComments2Controller.text,
                             "ics3Comments": icsComments3Controller.text,

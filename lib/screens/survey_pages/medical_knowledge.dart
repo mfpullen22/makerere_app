@@ -35,6 +35,22 @@ class _MedicalKnowledgeReviewState extends State<MedicalKnowledgeReview> {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisSize: MainAxisSize.min,
             children: [
+              TextButton(
+                onPressed: () {
+                  setState(() {
+                    sliderValue1 = 1;
+                    sliderValue2 = 2;
+                  });
+                  widget.onContinue({
+                    "mk1": sliderValue1,
+                    "mk2": sliderValue2,
+                    "mkTotal": sliderValue1 + sliderValue2,
+                    "mk1Comments": "MKTest1",
+                    "mk2Comments": "MKTest2",
+                  });
+                },
+                child: const Text("TEST"),
+              ),
               const Center(
                 child: Text(
                   "Medical Knowledge",
@@ -202,6 +218,7 @@ class _MedicalKnowledgeReviewState extends State<MedicalKnowledgeReview> {
                           widget.onBack({
                             "mk1": sliderValue1,
                             "mk2": sliderValue2,
+                            "mkTotal": sliderValue1 + sliderValue2,
                             "mk1Comments":
                                 medicalKnowledgeComments1Controller.text,
                             "mk2Comments":
@@ -233,6 +250,7 @@ class _MedicalKnowledgeReviewState extends State<MedicalKnowledgeReview> {
                           widget.onContinue({
                             "mk1": sliderValue1,
                             "mk2": sliderValue2,
+                            "mkTotal": sliderValue1 + sliderValue2,
                             "mk1Comments":
                                 medicalKnowledgeComments1Controller.text,
                             "mk2Comments":

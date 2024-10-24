@@ -37,6 +37,31 @@ class _SystemsBasedPracticeState extends State<SystemsBasedPractice> {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisSize: MainAxisSize.min,
             children: [
+              TextButton(
+                onPressed: () {
+                  setState(() {
+                    sliderValue1 = 1;
+                    sliderValue2 = 2;
+                    sliderValue3 = 3;
+                    sliderValue4 = 4;
+                  });
+                  widget.onContinue({
+                    "sbp1": sliderValue1,
+                    "sbp2": sliderValue2,
+                    "sbp3": sliderValue3,
+                    "sbp4": sliderValue4,
+                    "sbpTotal": sliderValue1 +
+                        sliderValue2 +
+                        sliderValue3 +
+                        sliderValue4,
+                    "sbp1Comments": "SBPTest1",
+                    "sbp2Comments": "SBPTest2",
+                    "sbp3Comments": "SBPTest3",
+                    "sbp4Comments": "SBPTest4",
+                  });
+                },
+                child: const Text("TEST"),
+              ),
               const Center(
                 child: Text(
                   "Systems-Based Practice",
@@ -344,6 +369,10 @@ class _SystemsBasedPracticeState extends State<SystemsBasedPractice> {
                             "sbp2": sliderValue2,
                             "sbp3": sliderValue3,
                             "sbp4": sliderValue4,
+                            "sbpTotal": sliderValue1 +
+                                sliderValue2 +
+                                sliderValue3 +
+                                sliderValue4,
                             "sbp1Comments": sbpComments1Controller.text,
                             "sbp2Comments": sbpComments2Controller.text,
                             "sbp3Comments": sbpComments3Controller.text,
@@ -377,6 +406,10 @@ class _SystemsBasedPracticeState extends State<SystemsBasedPractice> {
                             "sbp2": sliderValue2,
                             "sbp3": sliderValue3,
                             "sbp4": sliderValue4,
+                            "sbpTotal": sliderValue1 +
+                                sliderValue2 +
+                                sliderValue3 +
+                                sliderValue4,
                             "sbp1Comments": sbpComments1Controller.text,
                             "sbp2Comments": sbpComments2Controller.text,
                             "sbp3Comments": sbpComments3Controller.text,
