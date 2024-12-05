@@ -15,6 +15,11 @@ final theme = ThemeData(
   ),
   textTheme: GoogleFonts.latoTextTheme(),
 );
+
+final GlobalKey<ScaffoldMessengerState> scaffoldMessengerKey =
+    GlobalKey<ScaffoldMessengerState>();
+final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
@@ -29,6 +34,8 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      scaffoldMessengerKey: scaffoldMessengerKey,
+      navigatorKey: navigatorKey,
       theme: theme,
       home: StreamBuilder(
         stream: FirebaseAuth.instance.authStateChanges(),

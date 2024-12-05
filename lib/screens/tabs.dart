@@ -2,7 +2,7 @@ import "package:cloud_firestore/cloud_firestore.dart";
 import "package:firebase_auth/firebase_auth.dart";
 import "package:flutter/material.dart";
 import "package:makerere_app/screens/home.dart";
-import "package:makerere_app/screens/orientation.dart";
+import "package:makerere_app/screens/presentation_list.dart";
 import "package:makerere_app/screens/schedule.dart";
 
 class TabsScreen extends StatefulWidget {
@@ -70,9 +70,9 @@ class _TabsScreenState extends State<TabsScreen> {
     );
 
     if (_selectedPageIndex == 1) {
-      activePage = const OrientationScreen();
+      activePage = const PresentationListScreen();
       activePageTitle = const Text(
-        "Orientation Materials",
+        "Presentation Materials",
         style: TextStyle(color: Colors.white),
       );
     } else if (_selectedPageIndex == 2) {

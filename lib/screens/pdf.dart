@@ -10,13 +10,25 @@ class PDFScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     print("Opening PDF from path: $path");
 
+    final file = File(path);
+
+    if (!file.existsSync()) {
+      print("File not found: $path");
+      return Scaffold(
+        appBar: AppBar(title: const Text('PDF Viewer')),
+        body: const Center(
+          child: Text('PDF file not found. Please try again.'),
+        ),
+      );
+    }
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.black,
         iconTheme: const IconThemeData(color: Colors.white),
         title: const Text('PDF Viewer', style: TextStyle(color: Colors.white)),
       ),
-      body: SfPdfViewer.file(File(path)), // Using Syncfusion PDF viewer
+      body: SfPdfViewer.file(file),
     );
   }
 }
