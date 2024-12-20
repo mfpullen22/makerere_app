@@ -8,12 +8,9 @@ class PDFScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print("Opening PDF from path: $path");
-
     final file = File(path);
 
     if (!file.existsSync()) {
-      print("File not found: $path");
       return Scaffold(
         appBar: AppBar(title: const Text('PDF Viewer')),
         body: const Center(

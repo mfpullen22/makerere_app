@@ -16,7 +16,6 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
   @override
   void initState() {
     super.initState();
-    // Initialize with an empty list or one of the categories as default.
     currentList = [];
     dropdownValue = null;
   }
@@ -39,14 +38,15 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
         children: [
           const Center(
             child: Text(
-              textAlign: TextAlign.center,
               "View Rotation Schedule By:",
+              textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
               ),
             ),
           ),
+          const SizedBox(height: 16),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
@@ -55,15 +55,12 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
                 child: const Text("Rotation"),
               ),
               TextButton(
-                onPressed: () => updateDropdown(classes),
-                child: const Text("Class Year"),
-              ),
-              TextButton(
                 onPressed: () => updateDropdown(students),
                 child: const Text("Student"),
               ),
             ],
           ),
+          const SizedBox(height: 16),
           DropdownButtonFormField<String>(
             value: dropdownValue,
             hint: const Text("Select an option"),
@@ -81,18 +78,24 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
             ),
             isExpanded: true,
           ),
-          if (currentList == classes)
-            Expanded(
-              child: getScheduleByYear(dropdownValue ?? "mmed1"),
+          const SizedBox(height: 16),
+          Expanded(
+            child: Builder(
+              builder: (context) {
+                if (currentList == rotations && dropdownValue != null) {
+                  // Show schedule by rotation (organized by schedule period)
+                  return getScheduleByRotation(dropdownValue!);
+                } else if (currentList == students && dropdownValue != null) {
+                  // Show schedule by student
+                  return getScheduleByStudent(dropdownValue!);
+                } else {
+                  return const Center(
+                    child: Text("Please select a filter and option"),
+                  );
+                }
+              },
             ),
-          if (currentList == students)
-            Expanded(
-              child: getScheduleByStudent(dropdownValue ?? "mmed1"),
-            ),
-          if (currentList == rotations)
-            const Expanded(
-              child: Text("Rotation Schedule Pending"),
-            ),
+          ),
         ],
       ),
     );

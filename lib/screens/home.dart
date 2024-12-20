@@ -1,14 +1,19 @@
 import "package:flutter/material.dart";
 import "package:makerere_app/screens/add_survey.dart";
 import "package:makerere_app/screens/list_surveys.dart";
+import "package:makerere_app/screens/presentation_list.dart";
+import "package:makerere_app/screens/schedule.dart";
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+  final void Function(Widget) onNavigate;
+
+  const HomeScreen({super.key, required this.onNavigate});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
+    // Remove the Scaffold here, just return the content.
+    return Center(
+      child: SingleChildScrollView(
         child: Column(
           children: [
             Image.asset(
@@ -21,14 +26,21 @@ class HomeScreen extends StatelessWidget {
             SizedBox(
               width: 250,
               child: ElevatedButton(
-                onPressed: () {},
-                child: const Text("Orientation Materials"),
+                onPressed: () {
+                  // For these example buttons that aren't implemented,
+                  // you could either leave them blank or eventually implement them similarly.
+                  onNavigate(const PresentationListScreen());
+                },
+                child: const Text("Presentation Materials"),
               ),
             ),
             SizedBox(
               width: 250,
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  // Similarly not yet implemented
+                  onNavigate(const ScheduleScreen());
+                },
                 child: const Text("Semester Schedule"),
               ),
             ),
@@ -36,12 +48,9 @@ class HomeScreen extends StatelessWidget {
               width: 250,
               child: ElevatedButton(
                 onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => ListSurveysScreen(),
-                    ),
-                  );
+                  // Instead of Navigator.push, call the callback
+                  // to replace the HomeScreen with the ListSurveysScreen widget.
+                  onNavigate(const ListSurveysScreen());
                 },
                 child: const Text("View My Reviews"),
               ),
@@ -50,12 +59,8 @@ class HomeScreen extends StatelessWidget {
               width: 250,
               child: ElevatedButton(
                 onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const AddSurveyScreen(),
-                    ),
-                  );
+                  // Similarly for the AddSurveyScreen
+                  onNavigate(const AddSurveyScreen());
                 },
                 child: const Text("Add Student Review"),
               ),

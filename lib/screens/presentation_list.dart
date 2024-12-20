@@ -32,8 +32,6 @@ class _PresentationListScreenState extends State<PresentationListScreen> {
       final localFile = File(filePath);
 
       // Debugging file existence
-      print("File path: $filePath");
-      print("File exists before download: ${localFile.existsSync()}");
 
       // Download the file if it doesn't exist
       if (!localFile.existsSync()) {
@@ -50,8 +48,6 @@ class _PresentationListScreenState extends State<PresentationListScreen> {
         MaterialPageRoute(builder: (_) => PDFScreen(path: filePath)),
       );
     } catch (e) {
-      print("Error opening PDF: $e");
-
       // Show error message using the global scaffold messenger
       scaffoldMessengerKey.currentState?.showSnackBar(
         SnackBar(content: Text('Failed to open PDF: $e')),
@@ -67,22 +63,18 @@ class _PresentationListScreenState extends State<PresentationListScreen> {
 
   Future<void> _downloadPDF(String storageUrl, File localFile) async {
     try {
-      print("Checking directory and file before download...");
       final dir = localFile.parent;
 
       // Ensure the directory exists
       if (!dir.existsSync()) {
-        print("Directory does not exist. Creating: ${dir.path}");
         dir.createSync(recursive: true);
       }
 
       // Ensure the file is explicitly created
       if (!localFile.existsSync()) {
-        print("File does not exist. Creating: ${localFile.path}");
         localFile.createSync();
       }
 
-      print("Downloading PDF from Firebase Storage...");
       final ref = FirebaseStorage.instance.refFromURL(storageUrl);
       final bytes = await ref.getData();
 
@@ -90,20 +82,15 @@ class _PresentationListScreenState extends State<PresentationListScreen> {
         throw Exception("Failed to download PDF or received empty data.");
       }
 
-      print("Writing PDF to local storage...");
       await localFile.writeAsBytes(bytes, flush: true);
-      print("PDF successfully saved to ${localFile.path}");
     } on FileSystemException catch (e) {
-      print("File system error: ${e.message}");
       throw Exception("Failed to write PDF to local storage: ${e.message}");
     } catch (e) {
-      print("Unexpected error: $e");
       throw Exception("Download failed: $e");
     }
   }
 
   Future<Uint8List> _fetchPDFBytes(String storageUrl) async {
-    print("Downloading PDF from Firebase Storage...");
     final ref = FirebaseStorage.instance.refFromURL(storageUrl);
     final bytes = await ref.getData();
     if (bytes == null) {
@@ -211,7 +198,7 @@ class _PresentationListScreenState extends State<PresentationListScreen> {
         ),
         if (_isLoading)
           Container(
-            color: Colors.black.withOpacity(0.5),
+            color: Colors.black.withValues(alpha: 0.5),
             child: const Center(
               child: CircularProgressIndicator(),
             ),

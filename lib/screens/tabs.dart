@@ -4,6 +4,8 @@ import "package:flutter/material.dart";
 import "package:makerere_app/screens/home.dart";
 import "package:makerere_app/screens/presentation_list.dart";
 import "package:makerere_app/screens/schedule.dart";
+import 'package:makerere_app/screens/add_survey.dart';
+import 'package:makerere_app/screens/list_surveys.dart';
 
 class TabsScreen extends StatefulWidget {
   const TabsScreen({super.key});
@@ -17,15 +19,18 @@ class _TabsScreenState extends State<TabsScreen> {
   String? _userRole;
   bool _isLoading = true;
 
-  void _selectPage(int index) {
-    setState(() {
-      _selectedPageIndex = index;
-    });
-  }
+  late Widget _homeCurrentWidget;
 
   @override
   void initState() {
     super.initState();
+    _homeCurrentWidget = HomeScreen(
+      onNavigate: (Widget newScreen) {
+        setState(() {
+          _homeCurrentWidget = newScreen;
+        });
+      },
+    );
     _fetchUserRole();
   }
 
@@ -47,35 +52,80 @@ class _TabsScreenState extends State<TabsScreen> {
           _userRole = null;
           _isLoading = false;
         });
-        // Handle the case where the user document does not exist.
-        // For example, show an error message or navigate to an error page.
+        // Handle user doc not existing if needed.
       }
     }
   }
 
+  void _selectPage(int index) {
+    setState(() {
+      _selectedPageIndex = index;
+      // If the user taps the Home tab, reset to the original HomeScreen if we're not already showing it.
+      if (_selectedPageIndex == 0 && _homeCurrentWidget is! HomeScreen) {
+        _homeCurrentWidget = HomeScreen(
+          onNavigate: (Widget newScreen) {
+            setState(() {
+              _homeCurrentWidget = newScreen;
+            });
+          },
+        );
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-    Widget activePage = const HomeScreen();
-    Widget activePageTitle = const Column(
-      children: [
-        Text(
-          "Makerere University",
-          style: TextStyle(color: Colors.white),
-        ),
-        Text(
-          "Department of Medicine",
-          style: TextStyle(color: Colors.white),
-        ),
-      ],
-    );
+    Widget activePage;
+    Widget activePageTitle;
 
-    if (_selectedPageIndex == 1) {
+    bool isHomeTab = (_selectedPageIndex == 0);
+
+    if (isHomeTab) {
+      activePage = _homeCurrentWidget;
+
+      // Determine title and whether we need a back button.
+      if (_homeCurrentWidget is HomeScreen) {
+        activePageTitle = const Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              "Makerere University",
+              style: TextStyle(color: Colors.white),
+            ),
+            Text(
+              "Department of Medicine",
+              style: TextStyle(color: Colors.white),
+            ),
+          ],
+        );
+      } else {
+        // If we're not on the main HomeScreen, adjust the title based on the current widget.
+        if (_homeCurrentWidget is ListSurveysScreen) {
+          activePageTitle = const Text(
+            "My Reviews",
+            style: TextStyle(color: Colors.white),
+          );
+        } else if (_homeCurrentWidget is AddSurveyScreen) {
+          activePageTitle = const Text(
+            "Add Student Review",
+            style: TextStyle(color: Colors.white),
+          );
+        } else {
+          activePageTitle = const Text(
+            "Makerere University",
+            style: TextStyle(color: Colors.white),
+          );
+        }
+      }
+    } else if (_selectedPageIndex == 1) {
       activePage = const PresentationListScreen();
       activePageTitle = const Text(
         "Presentation Materials",
         style: TextStyle(color: Colors.white),
       );
-    } else if (_selectedPageIndex == 2) {
+    } else {
+      // _selectedPageIndex == 2
       activePage = const ScheduleScreen();
       activePageTitle = const Text(
         "Schedule",
@@ -83,8 +133,29 @@ class _TabsScreenState extends State<TabsScreen> {
       );
     }
 
+    // Determine if we should show a back button: Only show it on the Home tab if we're not on the initial HomeScreen.
+    Widget? leadingWidget;
+    if (isHomeTab && _homeCurrentWidget is! HomeScreen) {
+      leadingWidget = IconButton(
+        icon: const Icon(Icons.arrow_back),
+        color: Colors.white,
+        onPressed: () {
+          setState(() {
+            _homeCurrentWidget = HomeScreen(
+              onNavigate: (Widget newScreen) {
+                setState(() {
+                  _homeCurrentWidget = newScreen;
+                });
+              },
+            );
+          });
+        },
+      );
+    }
+
     return Scaffold(
       appBar: AppBar(
+        leading: leadingWidget,
         title: activePageTitle,
         backgroundColor: Colors.black,
         actions: [
@@ -97,9 +168,11 @@ class _TabsScreenState extends State<TabsScreen> {
           ),
         ],
       ),
-      body: activePage,
+      body: _isLoading
+          ? const Center(child: CircularProgressIndicator())
+          : activePage,
       bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: const Color.fromRGBO(0, 153, 0, 50),
+        backgroundColor: const Color.fromRGBO(0, 166, 81, 1.0),
         onTap: _selectPage,
         currentIndex: _selectedPageIndex,
         selectedItemColor: Colors.black,

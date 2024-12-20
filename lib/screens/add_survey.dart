@@ -2,7 +2,6 @@
 
 import "package:cloud_firestore/cloud_firestore.dart";
 import "package:firebase_auth/firebase_auth.dart";
-import 'package:intl/intl.dart';
 import "package:flutter/material.dart";
 import "package:makerere_app/screens/survey_pages/interpersonal_skills.dart";
 import "package:makerere_app/screens/survey_pages/medical_knowledge.dart";

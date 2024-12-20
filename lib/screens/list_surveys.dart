@@ -26,11 +26,8 @@ class _ListSurveysScreenState extends State<ListSurveysScreen> {
     try {
       final user = FirebaseAuth.instance.currentUser;
       if (user == null) {
-        print("No user logged in.");
         return;
       }
-
-      print("Fetching role for user with email: ${user.email}");
 
       // Fetch the user's document from Firestore using the email field
       QuerySnapshot snapshot = await FirebaseFirestore.instance
@@ -45,31 +42,25 @@ class _ListSurveysScreenState extends State<ListSurveysScreen> {
           userRole = userDoc['role'];
           fullName = "${userDoc['firstname']} ${userDoc['lastname']}";
         });
-        print("User role is $userRole, full name is $fullName");
 
         // Now that the role is set, fetch the reviews
         await fetchUserAndReviews();
       } else {
-        print("No user document found for the current user's email.");
         setState(() {
           userRole = null;
         });
       }
-    } catch (e) {
-      print("Error fetching user role: $e");
-    }
+    } catch (e) {}
   }
 
   Future<void> fetchUserAndReviews() async {
     if (currentUser == null) {
-      print("No current user.");
       return;
     }
 
     try {
       // Fetch the current user's document from Firestore based on email
       String email = currentUser!.email!;
-      print("Fetching document for user with email: $email");
 
       QuerySnapshot snapshot = await FirebaseFirestore.instance
           .collection('users')
@@ -82,9 +73,7 @@ class _ListSurveysScreenState extends State<ListSurveysScreen> {
 
         // Based on the role, fetch relevant reviews
         if (userRole == 'student') {
-          print("Fetching reviews for student");
           List<dynamic> userReviews = userDoc['reviews'] ?? [];
-          print("User reviews: $userReviews");
 
           // Filter reviews with a non-empty timestamp
           setState(() {
@@ -96,10 +85,7 @@ class _ListSurveysScreenState extends State<ListSurveysScreen> {
                 .cast<Map<String, dynamic>>()
                 .toList();
           });
-          print("Filtered student reviews: $reviews");
         } else if (userRole == 'faculty') {
-          print("Fetching reviews for faculty");
-
           // Fetch all students and filter their reviews where 'reviewer' matches faculty's full name
           QuerySnapshot studentSnapshot = await FirebaseFirestore.instance
               .collection('users')
@@ -110,7 +96,6 @@ class _ListSurveysScreenState extends State<ListSurveysScreen> {
 
           for (var studentDoc in studentSnapshot.docs) {
             List<dynamic> studentReviews = studentDoc['reviews'] ?? [];
-            print("Student reviews for doc: $studentReviews");
 
             facultyReviews.addAll(
               studentReviews
@@ -127,16 +112,9 @@ class _ListSurveysScreenState extends State<ListSurveysScreen> {
           setState(() {
             reviews = facultyReviews;
           });
-          print("Filtered faculty reviews: $reviews");
-        } else {
-          print("User role not recognized or no reviews found.");
-        }
-      } else {
-        print("No user document found for the current user with email $email");
-      }
-    } catch (e) {
-      print("Error fetching reviews: $e");
-    }
+        } else {}
+      } else {}
+    } catch (e) {}
   }
 
   @override
