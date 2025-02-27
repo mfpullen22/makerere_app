@@ -1,6 +1,7 @@
 import "package:flutter/material.dart";
 import "package:makerere_app/screens/add_survey.dart";
 import "package:makerere_app/screens/list_surveys.dart";
+import "package:makerere_app/screens/mentorship.dart";
 import "package:makerere_app/screens/presentation_list.dart";
 import "package:makerere_app/screens/schedule.dart";
 
@@ -63,6 +64,16 @@ class HomeScreen extends StatelessWidget {
                   onNavigate(const AddSurveyScreen());
                 },
                 child: const Text("Add Student Review"),
+              ),
+            ),
+            SizedBox(
+              width: 250,
+              child: ElevatedButton(
+                onPressed: () {
+                  // Similarly for the AddSurveyScreen
+                  onNavigate(const MeetingFormScreen());
+                },
+                child: const Text("Add Mentorship Meeting"),
               ),
             ),
           ],
