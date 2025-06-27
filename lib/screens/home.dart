@@ -1,5 +1,6 @@
 import "package:flutter/material.dart";
 import "package:makerere_app/screens/add_survey.dart";
+import "package:makerere_app/screens/admin_tasks_screen.dart";
 import "package:makerere_app/screens/list_surveys.dart";
 import "package:makerere_app/screens/mentorship.dart";
 import "package:makerere_app/screens/presentation_list.dart";
@@ -81,7 +82,7 @@ class HomeScreen extends StatelessWidget {
               child: ElevatedButton(
                 onPressed: () {
                   // Similarly for the AddSurveyScreen
-                  onNavigate(const MeetingFormScreen());
+                  onNavigate(const AdminTasksScreen());
                 },
                 child: const Text("Admin Tasks"),
               ),

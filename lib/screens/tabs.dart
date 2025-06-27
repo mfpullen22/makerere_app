@@ -34,7 +34,7 @@ class _TabsScreenState extends State<TabsScreen> {
     _fetchUserRole();
   }
 
-  Future<void> _fetchUserRole() async {
+/*   Future<void> _fetchUserRole() async {
     final user = FirebaseAuth.instance.currentUser;
     if (user != null) {
       final userDoc = await FirebaseFirestore.instance
@@ -53,6 +53,30 @@ class _TabsScreenState extends State<TabsScreen> {
           _isLoading = false;
         });
         // Handle user doc not existing if needed.
+      }
+    }
+  } */
+
+  Future<void> _fetchUserRole() async {
+    final user = FirebaseAuth.instance.currentUser;
+    if (user != null) {
+      final userDoc = await FirebaseFirestore.instance
+          .collection('users')
+          .doc(user.uid)
+          .get();
+
+      if (!mounted) return; // prevent calling setState if widget is disposed
+
+      if (userDoc.exists) {
+        setState(() {
+          _userRole = userDoc['role'];
+          _isLoading = false;
+        });
+      } else {
+        setState(() {
+          _userRole = null;
+          _isLoading = false;
+        });
       }
     }
   }

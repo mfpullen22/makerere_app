@@ -44,6 +44,8 @@ dependencies:
   intl: ^0.19.0
   syncfusion_flutter_pdfviewer: ^27.1.56
   firebase_storage: ^12.4.7
+  csv: ^6.0.0
+  cloud_functions: ^5.5.2
 
 dev_dependencies:
   flutter_test:
