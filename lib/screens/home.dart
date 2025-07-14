@@ -1,6 +1,9 @@
+import "package:cloud_firestore/cloud_firestore.dart";
+import "package:firebase_auth/firebase_auth.dart";
 import "package:flutter/material.dart";
 import "package:makerere_app/screens/add_survey.dart";
 import "package:makerere_app/screens/admin_tasks_screen.dart";
+import "package:makerere_app/screens/lecture_attendance_screen.dart";
 import "package:makerere_app/screens/list_surveys.dart";
 import "package:makerere_app/screens/mentorship.dart";
 import "package:makerere_app/screens/presentation_list.dart";
@@ -49,14 +52,63 @@ Widget _buildSquareButton(
   );
 }
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   final void Function(Widget) onNavigate;
 
   const HomeScreen({super.key, required this.onNavigate});
 
   @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  bool isAdmin = false;
+  bool isFaculty = false;
+  bool isStudent = false;
+  bool isLoading = true;
+
+  @override
+  void initState() {
+    super.initState();
+    checkAdminStatus();
+  }
+
+  Future<void> checkAdminStatus() async {
+    final user = FirebaseAuth.instance.currentUser;
+    if (user == null) return;
+
+    final email = user.email;
+    if (email == null) return;
+
+    final query = await FirebaseFirestore.instance
+        .collection('users')
+        .where('email', isEqualTo: email)
+        .limit(1)
+        .get();
+
+    if (query.docs.isNotEmpty) {
+      final userData = query.docs.first.data();
+      setState(() {
+        isAdmin = userData['role'] == 'admin';
+        isFaculty = userData['role'] == 'faculty';
+        isStudent = userData['role'] == 'student';
+        isLoading = false;
+      });
+    } else {
+      setState(() {
+        isAdmin = false;
+        isLoading = false;
+      });
+    }
+  }
+
+  @override
   Widget build(BuildContext context) {
     final double buttonSize = MediaQuery.of(context).size.width / 2.75;
+
+    if (isLoading) {
+      return const Center(child: CircularProgressIndicator());
+    }
 
     return SafeArea(
       child: SingleChildScrollView(
@@ -80,23 +132,35 @@ class HomeScreen extends StatelessWidget {
                 children: [
                   _buildSquareButton(
                       context, "Presentation\nMaterials", buttonSize, () {
-                    onNavigate(const PresentationListScreen());
+                    widget.onNavigate(const PresentationListScreen());
                   }),
-                  _buildSquareButton(context, "View\nMy Reviews", buttonSize,
-                      () {
-                    onNavigate(const ListSurveysScreen());
+                  _buildSquareButton(context, "Schedule", buttonSize, () {
+                    widget.onNavigate(const ScheduleScreen());
                   }),
-                  _buildSquareButton(context, "Add Student\nReview", buttonSize,
-                      () {
-                    onNavigate(const AddSurveyScreen());
-                  }),
-                  _buildSquareButton(
-                      context, "Add Mentorship\nMeeting", buttonSize, () {
-                    onNavigate(const MeetingFormScreen());
-                  }),
-                  _buildSquareButton(context, "Admin\nTasks", buttonSize, () {
-                    onNavigate(const AdminTasksScreen());
-                  }),
+                  if (isStudent)
+                    _buildSquareButton(context, "View\nMy Reviews", buttonSize,
+                        () {
+                      widget.onNavigate(const ListSurveysScreen());
+                    }),
+                  if (isFaculty || isAdmin)
+                    _buildSquareButton(
+                        context, "Add Student\nReview", buttonSize, () {
+                      widget.onNavigate(const AddSurveyScreen());
+                    }),
+                  if (isStudent)
+                    _buildSquareButton(
+                        context, "Add Mentorship\nMeeting", buttonSize, () {
+                      widget.onNavigate(const MeetingFormScreen());
+                    }),
+                  if (isStudent)
+                    _buildSquareButton(context, "Record Attendance", buttonSize,
+                        () {
+                      widget.onNavigate(const LectureAttendanceScreen());
+                    }),
+                  if (isAdmin || isFaculty)
+                    _buildSquareButton(context, "Admin\nTasks", buttonSize, () {
+                      widget.onNavigate(const AdminTasksScreen());
+                    }),
                   _buildSquareButton(context, "Open\nEvidence", buttonSize, () {
                     _launchURL("https://www.openevidence.com/");
                   }),
