@@ -86,7 +86,7 @@ class _StudentReviewsScreenState extends State<StudentReviewsScreen> {
                   );
                 } catch (e) {
                   ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(content: Text('Failed to send email: \$e')),
+                    const SnackBar(content: Text('Failed to send email: \$e')),
                   );
                 }
               }

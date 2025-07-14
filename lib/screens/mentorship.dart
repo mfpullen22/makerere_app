@@ -6,10 +6,10 @@ class MeetingFormScreen extends StatefulWidget {
   const MeetingFormScreen({Key? key}) : super(key: key);
 
   @override
-  _MeetingFormScreenState createState() => _MeetingFormScreenState();
+  MeetingFormScreenState createState() => MeetingFormScreenState();
 }
 
-class _MeetingFormScreenState extends State<MeetingFormScreen> {
+class MeetingFormScreenState extends State<MeetingFormScreen> {
   final TextEditingController _metWithController = TextEditingController();
   final TextEditingController _notesController = TextEditingController();
   DateTime? _selectedDate;
