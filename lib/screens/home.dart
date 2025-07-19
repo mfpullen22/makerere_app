@@ -152,7 +152,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         context, "Add Mentorship\nMeeting", buttonSize, () {
                       widget.onNavigate(const MeetingFormScreen());
                     }),
-                  if (isStudent)
+                  if (isStudent || isFaculty || isAdmin)
                     _buildSquareButton(context, "Record Attendance", buttonSize,
                         () {
                       widget.onNavigate(const LectureAttendanceScreen());

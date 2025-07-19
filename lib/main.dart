@@ -14,6 +14,16 @@ final theme = ThemeData(
     seedColor: const Color.fromRGBO(255, 0, 0, 100),
   ),
   textTheme: GoogleFonts.latoTextTheme(),
+  appBarTheme: const AppBarTheme(
+    backgroundColor: Colors.black,
+    foregroundColor: Colors.white,
+    titleTextStyle: TextStyle(
+      color: Colors.white,
+      fontSize: 20,
+      fontWeight: FontWeight.w600,
+    ),
+    iconTheme: IconThemeData(color: Colors.white),
+  ),
 );
 
 final GlobalKey<ScaffoldMessengerState> scaffoldMessengerKey =

@@ -1,17 +1,19 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:csv/csv.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:cloud_functions/cloud_functions.dart';
-import 'student_review_details_screen.dart';
+import 'package:csv/csv.dart';
 
-class StudentReviewsScreen extends StatefulWidget {
-  const StudentReviewsScreen({super.key});
+import 'student_meeting_list_screen.dart';
+
+class MentorshipMeetingsScreen extends StatefulWidget {
+  const MentorshipMeetingsScreen({super.key});
 
   @override
-  State<StudentReviewsScreen> createState() => _StudentReviewsScreenState();
+  State<MentorshipMeetingsScreen> createState() =>
+      _MentorshipMeetingsScreenState();
 }
 
-class _StudentReviewsScreenState extends State<StudentReviewsScreen> {
+class _MentorshipMeetingsScreenState extends State<MentorshipMeetingsScreen> {
   List<QueryDocumentSnapshot> students = [];
 
   @override
@@ -25,6 +27,7 @@ class _StudentReviewsScreenState extends State<StudentReviewsScreen> {
         .collection('users')
         .where('role', isEqualTo: 'student')
         .get();
+
     setState(() {
       students = snapshot.docs;
       students.sort((a, b) =>
@@ -32,39 +35,48 @@ class _StudentReviewsScreenState extends State<StudentReviewsScreen> {
     });
   }
 
-  Future<void> _exportReviews() async {
+  Future<void> _exportMeetings() async {
     final snapshot = await FirebaseFirestore.instance.collection('users').get();
-    final reviews = <List<dynamic>>[];
-    final headers = <String>{};
+    final List<List<dynamic>> csvRows = [
+      ['Student Name', 'Met With', 'Date', 'Note']
+    ];
 
     for (final doc in snapshot.docs) {
-      final userReviews = List.from(doc['reviews'] ?? []);
-      for (final review in userReviews) {
-        final row = <String, dynamic>{};
-        review.forEach((key, value) {
-          if (value is Map) {
-            value.forEach((subKey, subVal) {
-              headers.add(subKey);
-              row[subKey] = subVal;
-            });
-          } else {
-            headers.add(key);
-            row[key] = value;
+      final data = doc.data();
+      final meetings = List<Map<String, dynamic>>.from(data['meetings'] ?? []);
+      final studentName = "${data['firstname']} ${data['lastname']}";
+
+      for (final meeting in meetings) {
+        final metWith = meeting['metWith'] ?? '';
+        final note = meeting['notes'] ?? '';
+        DateTime? date;
+        final rawDate = meeting['date'];
+        if (rawDate is Timestamp) {
+          date = rawDate.toDate();
+        } else if (rawDate is String) {
+          try {
+            date = DateTime.parse(rawDate);
+          } catch (_) {
+            date = null;
           }
-        });
-        reviews.add(List.generate(
-            headers.length, (index) => row[headers.elementAt(index)] ?? ''));
+        } else {
+          date = null;
+        }
+        final dateStr = date != null
+            ? "${date.day.toString().padLeft(2, '0')}-${date.month.toString().padLeft(2, '0')}-${date.year}"
+            : '';
+
+        csvRows.add([studentName, metWith, dateStr, note]);
       }
     }
 
-    final csvData = [headers.toList(), ...reviews];
-    final csv = const ListToCsvConverter().convert(csvData);
+    final csv = const ListToCsvConverter().convert(csvRows);
 
     final emailController = TextEditingController();
     await showDialog(
       context: context,
       builder: (_) => AlertDialog(
-        title: const Text('Export Reviews'),
+        title: const Text('Export Mentorship Meetings'),
         content: TextField(
           controller: emailController,
           decoration: const InputDecoration(labelText: 'Enter your email'),
@@ -75,18 +87,19 @@ class _StudentReviewsScreenState extends State<StudentReviewsScreen> {
               final email = emailController.text.trim();
               if (email.isNotEmpty) {
                 try {
-                  final result = await FirebaseFunctions.instance
+                  await FirebaseFunctions.instance
                       .httpsCallable('sendReviewEmailWithMailgun')
                       .call({
                     'email': email,
                     'csv': csv,
                   });
+                  if (!mounted) return;
                   ScaffoldMessenger.of(context).showSnackBar(
                     const SnackBar(content: Text('Email sent successfully.')),
                   );
                 } catch (e) {
                   ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(content: Text('Failed to send email: \$e')),
+                    SnackBar(content: Text('Failed to send email: $e')),
                   );
                 }
               }
@@ -102,14 +115,14 @@ class _StudentReviewsScreenState extends State<StudentReviewsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Student Reviews')),
+      appBar: AppBar(title: const Text("Mentorship Meetings")),
       body: Column(
         children: [
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: ElevatedButton(
-              onPressed: _exportReviews,
-              child: const Text('Export all Reviews'),
+              onPressed: _exportMeetings,
+              child: const Text('Export all meetings'),
             ),
           ),
           Expanded(
@@ -120,23 +133,18 @@ class _StudentReviewsScreenState extends State<StudentReviewsScreen> {
                 return Card(
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10),
-                    side: const BorderSide(
-                      color: Colors.black,
-                    ),
+                    side: const BorderSide(color: Colors.black),
                   ),
                   elevation: 16,
                   child: ListTile(
                     title:
                         Text('${student['firstname']} ${student['lastname']}'),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10),
-                    ),
                     trailing: const Icon(Icons.arrow_forward),
                     onTap: () => Navigator.push(
                       context,
                       MaterialPageRoute(
                         builder: (_) =>
-                            StudentReviewDetailsScreen(studentDoc: student),
+                            StudentMeetingListScreen(studentDoc: student),
                       ),
                     ),
                   ),

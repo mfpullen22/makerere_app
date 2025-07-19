@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:makerere_app/screens/attendance_captain_screen.dart';
+import 'package:makerere_app/screens/mentorship_meetings_screen.dart';
 import 'student_reviews_screen.dart';
 
 class AdminTasksScreen extends StatelessWidget {
@@ -27,7 +29,12 @@ class AdminTasksScreen extends StatelessWidget {
               SizedBox(
                 width: 250,
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (_) => const MentorshipMeetingsScreen(),
+                    ),
+                  ),
                   child: const Text('View Mentorship Meetings'),
                 ),
               ),
@@ -36,6 +43,18 @@ class AdminTasksScreen extends StatelessWidget {
                 child: ElevatedButton(
                   onPressed: () {},
                   child: const Text('View Attendance'),
+                ),
+              ),
+              SizedBox(
+                width: 250,
+                child: ElevatedButton(
+                  onPressed: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (_) => const AssignAttendanceCaptainsScreen(),
+                    ),
+                  ),
+                  child: const Text('Choose Attendance Captains'),
                 ),
               ),
               SizedBox(

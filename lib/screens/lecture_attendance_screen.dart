@@ -127,7 +127,7 @@ class _LectureAttendanceScreenState extends State<LectureAttendanceScreen> {
         padding: EdgeInsets.all(24.0),
         child: Center(
           child: Text(
-            "You have not been nominated as an attendance caption.\nIf you believe this is an error, please contact an administrator in the Medicine Clerkship office.",
+            "You are not an attendance captain.\nIf you believe this is an error, please contact an administrator in the Medicine Clerkship office.",
             textAlign: TextAlign.center,
             style: TextStyle(fontSize: 16),
           ),

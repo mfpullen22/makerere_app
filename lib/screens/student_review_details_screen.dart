@@ -2,10 +2,10 @@
 import 'package:flutter/material.dart';
 import 'package:makerere_app/screens/view_surveys.dart';
 
-class StudentReviewListScreen extends StatelessWidget {
+class StudentReviewDetailsScreen extends StatelessWidget {
   final dynamic studentDoc;
 
-  const StudentReviewListScreen({super.key, required this.studentDoc});
+  const StudentReviewDetailsScreen({super.key, required this.studentDoc});
 
   @override
   Widget build(BuildContext context) {
