@@ -1,3 +1,0 @@
-class ScheduleFirstSecond {}
-
-class ScheduleThird {}
